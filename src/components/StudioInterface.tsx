@@ -20,7 +20,7 @@ import {
   Zap,
   Grid,
 } from 'lucide-react';
-import PaintCanvas from './PaintCanvas';
+import PaintCanvas from './PaintCanvasDynamic';
 
 export default function StudioInterface() {
   const [selectedTool, setSelectedTool] = useState('brush');

@@ -38,7 +38,7 @@ export default function MarketplaceView() {
     {
       id: 1,
       title: 'Neon Dreams',
-      artist: 'CryptoPainter',
+      painter: 'CryptoPainter',
       price: 0.05,
       likes: 234,
       views: 1205,

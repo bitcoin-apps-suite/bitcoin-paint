@@ -38,3 +38,6 @@ next-env.d.ts
 # screenshots
 Screenshot*.png
 *.png
+
+# exclude conflicting bitcoin-art directory
+bitcoin-art/

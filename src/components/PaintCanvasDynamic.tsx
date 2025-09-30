@@ -1,0 +1,35 @@
+'use client';
+
+import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
+
+interface PaintCanvasProps {
+  canvasWidth?: number;
+  canvasHeight?: number;
+}
+
+const PaintCanvas: ComponentType<PaintCanvasProps> = dynamic(
+  () => import('./PaintCanvas'),
+  { 
+    ssr: false,
+    loading: () => (
+      <div 
+        style={{
+          width: '100%',
+          height: '600px',
+          background: '#1a1a1a',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#888',
+          border: '1px solid rgba(139, 92, 246, 0.2)',
+          borderRadius: '8px'
+        }}
+      >
+        Loading Canvas...
+      </div>
+    )
+  }
+);
+
+export default PaintCanvas;

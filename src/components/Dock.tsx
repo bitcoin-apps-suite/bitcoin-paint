@@ -55,7 +55,6 @@ const Dock: React.FC = () => {
       'text-bitcoin-purple': '#8b5cf6',
       'text-yellow-500': '#eab308',
       'text-red-500': '#ef4444',
-      'text-purple-500': '#a855f7',
       'text-fuchsia-500': '#d946ef',
       'text-green-500': '#22c55e',
       'text-blue-500': '#3b82f6',
