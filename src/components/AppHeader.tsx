@@ -48,10 +48,10 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
         </div>
         <div>
           <h1 style={{ fontSize: '20px', fontWeight: 'bold', color: 'white', margin: 0 }}>
-            Bitcoin Art Gallery
+            Bitcoin Paint Studio
           </h1>
           <p style={{ fontSize: '12px', color: '#888', margin: 0 }}>
-            Create & Trade Digital Art on Bitcoin
+            Create & Trade Digital Paintings on Bitcoin
           </p>
         </div>
       </div>
@@ -116,13 +116,13 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
             zIndex: 1000,
           }}
         >
-          <h3 style={{ color: '#8b5cf6', marginBottom: '12px' }}>About Bitcoin Art</h3>
+          <h3 style={{ color: '#8b5cf6', marginBottom: '12px' }}>About Bitcoin Paint</h3>
           <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '16px' }}>
             The premier platform for creating, collecting, and trading digital art NFTs on the Bitcoin blockchain.
           </p>
           <div style={{ borderTop: '1px solid rgba(139, 92, 246, 0.2)', paddingTop: '16px' }}>
             <p style={{ fontSize: '12px', color: '#888', marginBottom: '8px' }}>
-              <strong>$bArt Token:</strong> Native platform token
+              <strong>$bPaint Token:</strong> Native platform token
             </p>
             <p style={{ fontSize: '12px', color: '#888', marginBottom: '8px' }}>
               <strong>Network:</strong> Bitcoin BSV

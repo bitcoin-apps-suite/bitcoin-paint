@@ -69,7 +69,7 @@ const Dock: React.FC = () => {
 
   const dockApps: DockApp[] = [
     { name: 'Bitcoin Apps Store', icon: Store, color: 'text-purple-500', url: 'https://www.bitcoinapps.store/' },
-    { name: 'Bitcoin Art', icon: Palette, color: 'text-art-purple', current: true },
+    { name: 'Bitcoin Paint', icon: Palette, color: 'text-art-purple', current: true },
     { name: 'Bitcoin Wallet', icon: Wallet, color: 'text-yellow-500', url: 'https://bitcoin-wallet-sable.vercel.app' },
     { name: 'Bitcoin Email', icon: Mail, color: 'text-red-500', url: 'https://bitcoin-email.vercel.app' },
     { name: 'Bitcoin Music', icon: Music, color: 'text-purple-500', url: 'https://bitcoin-music.vercel.app' },

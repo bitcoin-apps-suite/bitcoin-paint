@@ -8,7 +8,7 @@ export default function ProofOfConceptBar() {
     <div className="poc-bar">
       <div className="poc-content">
         <AlertTriangle className="w-4 h-4 poc-icon" />
-        <span className="poc-text">PROOF OF CONCEPT - Bitcoin Art Gallery powered by Bitcoin OS</span>
+        <span className="poc-text">PROOF OF CONCEPT - Bitcoin Paint Studio powered by Bitcoin OS</span>
         <AlertTriangle className="w-4 h-4 poc-icon" />
       </div>
     </div>

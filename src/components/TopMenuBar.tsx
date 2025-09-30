@@ -52,11 +52,11 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
 
   const menus: Menu[] = [
     {
-      label: 'Bitcoin Art',
+      label: 'Bitcoin Paint',
       items: [
         { 
-          label: 'About Bitcoin Art', 
-          action: () => alert('Bitcoin Art v1.0\n\nThe Digital Art Platform for Bitcoin\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102') 
+          label: 'About Bitcoin Paint', 
+          action: () => alert('Bitcoin Paint v1.0\n\nThe Digital Painting Platform for Bitcoin\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102') 
         },
         { divider: true },
         { 
@@ -252,9 +252,9 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       label: 'Help',
       items: [
         { 
-          label: 'Bitcoin Art Help', 
+          label: 'Bitcoin Paint Help', 
           shortcut: '⌘?',
-          action: () => alert('Bitcoin Art v1.0\n\nThe Digital Art Platform for Bitcoin')
+          action: () => alert('Bitcoin Paint v1.0\n\nThe Digital Painting Platform for Bitcoin')
         },
         { divider: true },
         { 

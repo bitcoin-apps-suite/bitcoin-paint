@@ -1,7 +1,7 @@
 {
-  "name": "Bitcoin Art Gallery",
-  "short_name": "Bitcoin Art",
-  "description": "Create, collect, and trade digital art NFTs on Bitcoin",
+  "name": "Bitcoin Paint Studio",
+  "short_name": "Bitcoin Paint",
+  "description": "Create, collect, and trade digital painting NFTs on Bitcoin",
   "theme_color": "#ff6b00",
   "background_color": "#0a0a0a",
   "display": "standalone",

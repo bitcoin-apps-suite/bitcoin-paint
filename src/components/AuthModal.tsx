@@ -104,9 +104,9 @@ export default function AuthModal({ onClose }: AuthModalProps) {
           </h2>
           <p style={{ color: '#999', fontSize: '14px' }}>
             {authMode === 'login'
-              ? 'Sign in to access your art gallery'
+              ? 'Sign in to access your paint gallery'
               : authMode === 'register'
-              ? 'Join the Bitcoin Art community'
+              ? 'Join the Bitcoin Paint community'
               : 'Choose your Bitcoin wallet to connect'}
           </p>
         </div>

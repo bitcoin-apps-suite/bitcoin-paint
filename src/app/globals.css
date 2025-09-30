@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --primary: #8b5cf6; /* Vibrant purple for art */
+  --primary: #8b5cf6; /* Vibrant purple for painting */
   --primary-dark: #7c3aed; /* Deeper purple */
   --primary-light: #a78bfa; /* Lighter purple */
   --secondary: #e5e7eb; /* Silver */
@@ -82,7 +82,7 @@ body {
 }
 
 /* Card styles */
-.art-card {
+.paint-card {
   @apply bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-purple-900/20 shadow-xl;
 }
 

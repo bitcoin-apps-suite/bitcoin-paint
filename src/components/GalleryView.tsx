@@ -98,7 +98,7 @@ export default function GalleryView() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <div>
             <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: 'white', marginBottom: '8px' }}>
-              My Art Gallery
+              Paint Gallery
             </h1>
             <p style={{ color: '#999' }}>
               Manage your digital art collection and creations
@@ -119,7 +119,7 @@ export default function GalleryView() {
             }}
           >
             <Upload size={20} />
-            Upload Artwork
+            Upload Painting
           </button>
         </div>
 
@@ -155,7 +155,7 @@ export default function GalleryView() {
               transition: 'all 0.2s',
             }}
           >
-            Collected Art
+            Collected Paintings
           </button>
           <button
             onClick={() => setActiveTab('favorites')}
@@ -259,7 +259,7 @@ export default function GalleryView() {
             }}
           >
             <FolderOpen size={64} style={{ marginBottom: '16px' }} />
-            <h3 style={{ fontSize: '20px', marginBottom: '8px' }}>No artworks yet</h3>
+            <h3 style={{ fontSize: '20px', marginBottom: '8px' }}>No paintings yet</h3>
             <p style={{ marginBottom: '20px' }}>Start creating or collecting digital art</p>
             <button
               style={{
@@ -272,7 +272,7 @@ export default function GalleryView() {
                 cursor: 'pointer',
               }}
             >
-              {activeTab === 'created' ? 'Create Artwork' : 'Browse Marketplace'}
+              {activeTab === 'created' ? 'Create Painting' : 'Browse Marketplace'}
             </button>
           </div>
         ) : viewMode === 'grid' ? (
@@ -300,7 +300,7 @@ export default function GalleryView() {
                   );
                 }}
               >
-                {/* Artwork Preview */}
+                {/* Painting Preview */}
                 <div
                   style={{
                     height: '200px',

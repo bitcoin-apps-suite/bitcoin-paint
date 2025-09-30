@@ -1,6 +1,6 @@
-# Bitcoin Art
+# Bitcoin Paint
 
-A Next.js application for Bitcoin Art Gallery, integrated with Bitcoin OS Bridge for wallet connectivity.
+A Next.js application for Bitcoin Paint Studio, integrated with Bitcoin OS Bridge for wallet connectivity.
 
 ## Features
 
@@ -20,8 +20,8 @@ A Next.js application for Bitcoin Art Gallery, integrated with Bitcoin OS Bridge
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/bitcoin-apps-suite/bitcoin-art.git
-cd bitcoin-art
+git clone https://github.com/bitcoin-apps-suite/bitcoin-paint.git
+cd bitcoin-paint
 ```
 
 2. Install dependencies:
@@ -53,7 +53,7 @@ This project uses [@bitcoin-os/bridge](https://www.npmjs.com/package/@bitcoin-os
 ## Project Structure
 
 ```
-bitcoin-art/
+bitcoin-paint/
 ├── src/
 │   ├── app/
 │   │   ├── globals.css

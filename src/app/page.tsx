@@ -5,11 +5,11 @@ import ProofOfConceptBar from '@/components/ProofOfConceptBar';
 import TopMenuBar from '@/components/TopMenuBar';
 import DevSidebar from '@/components/DevSidebar';
 import Dock from '@/components/Dock';
-import ArtSidebar from '@/components/ArtSidebar';
+import PaintSidebar from '@/components/PaintSidebar';
 import StudioInterface from '@/components/StudioInterface';
 import MarketplaceView from '@/components/MarketplaceView';
 import GalleryView from '@/components/GalleryView';
-import ArtExchangeView from '@/components/ArtExchangeView';
+import PaintExchangeView from '@/components/PaintExchangeView';
 import AppHeader from '@/components/AppHeader';
 import AuthModal from '@/components/AuthModal';
 
@@ -63,7 +63,7 @@ export default function HomePage() {
       case 'gallery':
         return <GalleryView />;
       case 'exchange':
-        return <ArtExchangeView />;
+        return <PaintExchangeView />;
       default:
         return <StudioInterface />;
     }
@@ -116,7 +116,7 @@ export default function HomePage() {
       >
         {/* Sidebar */}
         <div
-          className="art-sidebar-container"
+          className="paint-sidebar-container"
           style={{
             width: `${sidebarWidth}px`,
             background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
@@ -126,7 +126,7 @@ export default function HomePage() {
             position: 'relative',
           }}
         >
-          <ArtSidebar
+          <PaintSidebar
             currentView={currentView}
             onViewChange={setCurrentView}
             onAuthRequired={() => setShowAuthModal(true)}
@@ -239,7 +239,7 @@ export default function HomePage() {
             >
               <div className="mobile-menu-title" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span>🎨</span>
-                <span style={{ fontWeight: 'bold' }}>Bitcoin Art</span>
+                <span style={{ fontWeight: 'bold' }}>Bitcoin Paint</span>
               </div>
               <button
                 className="mobile-menu-close"
@@ -279,7 +279,7 @@ export default function HomePage() {
                   }}
                 >
                   <span>🎨</span>
-                  <span>Art Studio</span>
+                  <span>Paint Studio</span>
                 </button>
                 <button
                   className={`mobile-menu-item ${currentView === 'marketplace' ? 'active' : ''}`}
@@ -325,7 +325,7 @@ export default function HomePage() {
                   }}
                 >
                   <span>🖼️</span>
-                  <span>Gallery</span>
+                  <span>Paint Gallery</span>
                 </button>
                 <button
                   className={`mobile-menu-item ${currentView === 'exchange' ? 'active' : ''}`}
@@ -348,7 +348,7 @@ export default function HomePage() {
                   }}
                 >
                   <span>📈</span>
-                  <span>Art Exchange</span>
+                  <span>Paint Exchange</span>
                 </button>
               </div>
             </div>

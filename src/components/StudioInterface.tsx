@@ -20,6 +20,7 @@ import {
   Zap,
   Grid,
 } from 'lucide-react';
+import PaintCanvas from './PaintCanvas';
 
 export default function StudioInterface() {
   const [selectedTool, setSelectedTool] = useState('brush');
@@ -95,7 +96,7 @@ export default function StudioInterface() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Palette size={20} color="#8b5cf6" />
           <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: 'white', margin: 0 }}>
-            Art Studio - Untitled Artwork
+            Paint Studio - Untitled Painting
           </h2>
         </div>
 
@@ -204,40 +205,10 @@ export default function StudioInterface() {
             position: 'relative',
           }}
         >
-          <div
-            style={{
-              width: '800px',
-              height: '600px',
-              background: 'white',
-              borderRadius: '8px',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            <canvas
-              style={{ width: '100%', height: '100%' }}
-              onMouseDown={(e) => {
-                // Canvas drawing logic would go here
-                console.log('Canvas interaction');
-              }}
-            />
-            {/* Canvas Placeholder */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ccc',
-                fontSize: '18px',
-                fontWeight: 500,
-              }}
-            >
-              Click and drag to start creating
-            </div>
-          </div>
+          <PaintCanvas 
+            canvasWidth={800} 
+            canvasHeight={600} 
+          />
 
           {/* Zoom Controls */}
           <div

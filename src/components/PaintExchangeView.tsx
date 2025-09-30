@@ -18,7 +18,7 @@ import {
   Coins,
 } from 'lucide-react';
 
-export default function ArtExchangeView() {
+export default function PaintExchangeView() {
   const [selectedTab, setSelectedTab] = useState<'overview' | 'trade' | 'analytics' | 'staking'>('overview');
   const [tradeType, setTradeType] = useState<'buy' | 'sell'>('buy');
   const [amount, setAmount] = useState('');
@@ -44,7 +44,7 @@ export default function ArtExchangeView() {
   ];
 
   const recentTrades = [
-    { type: 'buy', amount: 5000, price: 0.00042, time: '2 mins ago', user: 'Art...3fx' },
+    { type: 'buy', amount: 5000, price: 0.00042, time: '2 mins ago', user: 'Paint...3fx' },
     { type: 'sell', amount: 3200, price: 0.00041, time: '5 mins ago', user: 'Collector...8ha' },
     { type: 'buy', amount: 10000, price: 0.00043, time: '12 mins ago', user: 'Gallery...2df' },
     { type: 'buy', amount: 2500, price: 0.00042, time: '18 mins ago', user: 'Creator...9kl' },
@@ -89,10 +89,10 @@ export default function ArtExchangeView() {
               </div>
               <div>
                 <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: 'white', margin: 0 }}>
-                  $bArt Token Exchange
+                  $bPaint Token Exchange
                 </h1>
                 <p style={{ color: '#999', margin: 0 }}>
-                  The native token of Bitcoin Art Gallery
+                  The native token of Bitcoin Paint Studio
                 </p>
               </div>
             </div>
@@ -268,7 +268,7 @@ export default function ArtExchangeView() {
                           >
                             {trade.type.toUpperCase()}
                           </span>
-                          <span style={{ fontSize: '14px', color: 'white' }}>{trade.amount} $bArt</span>
+                          <span style={{ fontSize: '14px', color: 'white' }}>{trade.amount} $bPaint</span>
                         </div>
                         <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>{trade.user}</p>
                       </div>
@@ -293,7 +293,7 @@ export default function ArtExchangeView() {
               }}
             >
               <h3 style={{ fontSize: '20px', fontWeight: 600, color: '#8b5cf6', marginBottom: '20px' }}>
-                About $bArt Token
+                About $bPaint Token
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
                 <div>
@@ -308,8 +308,8 @@ export default function ArtExchangeView() {
                 <div>
                   <h4 style={{ fontSize: '16px', color: 'white', marginBottom: '12px' }}>Token Economics</h4>
                   <ul style={{ color: '#999', fontSize: '14px', paddingLeft: '20px' }}>
-                    <li>Total Supply: 100,000,000 $bArt</li>
-                    <li>Circulating: 45,000,000 $bArt</li>
+                    <li>Total Supply: 100,000,000 $bPaint</li>
+                    <li>Circulating: 45,000,000 $bPaint</li>
                     <li>Team & Advisors: 15% (vested)</li>
                     <li>Community Rewards: 40%</li>
                   </ul>
@@ -317,8 +317,8 @@ export default function ArtExchangeView() {
                 <div>
                   <h4 style={{ fontSize: '16px', color: 'white', marginBottom: '12px' }}>Benefits</h4>
                   <ul style={{ color: '#999', fontSize: '14px', paddingLeft: '20px' }}>
-                    <li>Early access to new art collections</li>
-                    <li>Participation in artist launchpad</li>
+                    <li>Early access to new painting collections</li>
+                    <li>Participation in painter launchpad</li>
                     <li>Premium analytics and market data</li>
                     <li>VIP community access</li>
                   </ul>
@@ -346,7 +346,7 @@ export default function ArtExchangeView() {
                     cursor: 'pointer',
                   }}
                 >
-                  Buy $bArt
+                  Buy $bPaint
                 </button>
                 <button
                   onClick={() => setTradeType('sell')}
@@ -362,14 +362,14 @@ export default function ArtExchangeView() {
                     cursor: 'pointer',
                   }}
                 >
-                  Sell $bArt
+                  Sell $bPaint
                 </button>
               </div>
 
               {/* Amount Input */}
               <div style={{ marginBottom: '24px' }}>
                 <label style={{ display: 'block', marginBottom: '8px', color: '#999', fontSize: '14px' }}>
-                  Amount ($bArt)
+                  Amount ($bPaint)
                 </label>
                 <input
                   type="number"
@@ -411,7 +411,7 @@ export default function ArtExchangeView() {
               {/* Price Info */}
               <div style={{ marginBottom: '24px', padding: '16px', background: 'rgba(139, 92, 246, 0.05)', borderRadius: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ color: '#999', fontSize: '14px' }}>Price per $bArt</span>
+                  <span style={{ color: '#999', fontSize: '14px' }}>Price per $bPaint</span>
                   <span style={{ color: 'white', fontSize: '14px' }}>{tokenStats.price} BTC</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -442,14 +442,14 @@ export default function ArtExchangeView() {
                   cursor: 'pointer',
                 }}
               >
-                {tradeType === 'buy' ? 'Buy' : 'Sell'} $bArt
+                {tradeType === 'buy' ? 'Buy' : 'Sell'} $bPaint
               </button>
 
               {/* Wallet Balance */}
               <div style={{ marginTop: '24px', padding: '16px', background: 'rgba(0, 0, 0, 0.3)', borderRadius: '8px' }}>
                 <p style={{ fontSize: '14px', color: '#999', marginBottom: '8px' }}>Your Balances:</p>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'white' }}>$bArt: 12,500</span>
+                  <span style={{ color: 'white' }}>$bPaint: 12,500</span>
                   <span style={{ color: 'white' }}>BTC: 0.45</span>
                 </div>
               </div>
@@ -460,7 +460,7 @@ export default function ArtExchangeView() {
         {selectedTab === 'staking' && (
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 style={{ fontSize: '24px', fontWeight: 600, color: 'white', marginBottom: '24px' }}>
-              Stake $bArt & Earn Rewards
+              Stake $bPaint & Earn Rewards
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               {stakingTiers.map((tier) => (
@@ -498,7 +498,7 @@ export default function ArtExchangeView() {
                       {tier.level}
                     </h3>
                     <p style={{ fontSize: '14px', color: '#999', marginTop: '4px' }}>
-                      Min. {tier.required.toLocaleString()} $bArt
+                      Min. {tier.required.toLocaleString()} $bPaint
                     </p>
                   </div>
                   <div

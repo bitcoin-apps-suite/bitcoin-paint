@@ -73,7 +73,7 @@ export default function DevSidebar() {
     external?: boolean;
   }> = [
     // Token & Core at top
-    { path: '/token', icon: Coins, label: '$bArt Token', badge: 'NEW' },
+    { path: '/token', icon: Coins, label: '$bPaint Token', badge: 'NEW' },
     { path: '/contracts', icon: Terminal, label: 'Smart Contracts', badge: 'BETA' },
     { path: '/exchange', icon: Download, label: 'Token Exchange' },
     

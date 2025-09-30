@@ -25,13 +25,13 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-interface ArtSidebarProps {
+interface PaintSidebarProps {
   currentView: string;
   onViewChange: (view: 'studio' | 'marketplace' | 'gallery' | 'exchange') => void;
   onAuthRequired: () => void;
 }
 
-export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }: ArtSidebarProps) {
+export default function PaintSidebar({ currentView, onViewChange, onAuthRequired }: PaintSidebarProps) {
   const [expandedSections, setExpandedSections] = useState<string[]>(['studio', 'gallery']);
   const [searchQuery, setSearchQuery] = useState('');
   const [storageUsed, setStorageUsed] = useState(0);
@@ -39,7 +39,7 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
 
   useEffect(() => {
     // Load storage info from localStorage
-    const savedProjects = localStorage.getItem('artProjects');
+    const savedProjects = localStorage.getItem('paintProjects');
     if (savedProjects) {
       const size = new Blob([savedProjects]).size;
       setStorageUsed(size);
@@ -63,11 +63,11 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
   const menuItems = [
     {
       id: 'studio',
-      label: 'Art Studio',
+      label: 'Paint Studio',
       icon: Palette,
       view: 'studio' as const,
       children: [
-        { label: 'New Artwork', icon: Plus, action: 'new' },
+        { label: 'New Painting', icon: Plus, action: 'new' },
         { label: 'Recent Projects', icon: Clock, action: 'recent' },
         { label: 'Templates', icon: Grid, action: 'templates' },
         { label: 'AI Tools', icon: Sparkles, action: 'ai' },
@@ -79,7 +79,7 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
       icon: Store,
       view: 'marketplace' as const,
       children: [
-        { label: 'Browse Art', icon: Image, action: 'browse' },
+        { label: 'Browse Paintings', icon: Image, action: 'browse' },
         { label: 'Trending', icon: TrendingUp, action: 'trending' },
         { label: 'New Drops', icon: Sparkles, action: 'new' },
         { label: 'Artists', icon: Users, action: 'artists' },
@@ -87,23 +87,23 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
     },
     {
       id: 'gallery',
-      label: 'My Gallery',
+      label: 'Paint Gallery',
       icon: Frame,
       view: 'gallery' as const,
       children: [
         { label: 'My Collection', icon: Image, action: 'collection' },
-        { label: 'Created Artworks', icon: Brush, action: 'created' },
+        { label: 'Created Paintings', icon: Brush, action: 'created' },
         { label: 'Favorites', icon: Star, action: 'favorites' },
-        { label: 'Upload Art', icon: Upload, action: 'upload' },
+        { label: 'Upload Painting', icon: Upload, action: 'upload' },
       ],
     },
     {
       id: 'exchange',
-      label: 'Art Exchange',
+      label: 'Paint Exchange',
       icon: TrendingUp,
       view: 'exchange' as const,
       children: [
-        { label: '$bArt Token', icon: TrendingUp, action: 'token' },
+        { label: '$bPaint Token', icon: TrendingUp, action: 'token' },
         { label: 'Trade History', icon: Clock, action: 'history' },
         { label: 'Analytics', icon: TrendingUp, action: 'analytics' },
       ],
@@ -128,7 +128,7 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
           <Search size={16} style={{ color: '#8b5cf6', marginRight: '8px' }} />
           <input
             type="text"
-            placeholder="Search artworks..."
+            placeholder="Search paintings..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{

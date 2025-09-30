@@ -15,10 +15,10 @@ import {
   List,
 } from 'lucide-react';
 
-interface ArtworkItem {
+interface PaintingItem {
   id: number;
   title: string;
-  artist: string;
+  painter: string;
   price: number;
   likes: number;
   views: number;
@@ -33,12 +33,12 @@ export default function MarketplaceView() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('trending');
 
-  // Mock data for artworks
-  const artworks: ArtworkItem[] = [
+  // Mock data for paintings
+  const paintings: PaintingItem[] = [
     {
       id: 1,
       title: 'Neon Dreams',
-      artist: 'CryptoArtist',
+      artist: 'CryptoPainter',
       price: 0.05,
       likes: 234,
       views: 1205,
@@ -50,7 +50,7 @@ export default function MarketplaceView() {
     {
       id: 2,
       title: 'Bitcoin Genesis',
-      artist: 'SatoshiVision',
+      painter: 'SatoshiVision',
       price: 0.12,
       likes: 456,
       views: 2340,
@@ -62,7 +62,7 @@ export default function MarketplaceView() {
     {
       id: 3,
       title: 'Abstract Reality',
-      artist: 'PixelMaster',
+      painter: 'PixelMaster',
       price: 0.08,
       likes: 189,
       views: 890,
@@ -74,7 +74,7 @@ export default function MarketplaceView() {
     {
       id: 4,
       title: 'Future Landscapes',
-      artist: 'DigitalDreamer',
+      painter: 'DigitalDreamer',
       price: 0.15,
       likes: 567,
       views: 3456,
@@ -86,7 +86,7 @@ export default function MarketplaceView() {
     {
       id: 5,
       title: 'Cyber Punk City',
-      artist: 'NeoArtist',
+      painter: 'NeoPainter',
       price: 0.09,
       likes: 345,
       views: 1678,
@@ -98,7 +98,7 @@ export default function MarketplaceView() {
     {
       id: 6,
       title: 'Golden Ratio',
-      artist: 'MathArt',
+      painter: 'MathPainter',
       price: 0.20,
       likes: 789,
       views: 4567,
@@ -110,15 +110,15 @@ export default function MarketplaceView() {
   ];
 
   const categories = [
-    { id: 'all', label: 'All Artworks', icon: Grid },
-    { id: 'digital', label: 'Digital Art', icon: Sparkles },
-    { id: 'crypto', label: 'Crypto Art', icon: Bitcoin },
+    { id: 'all', label: 'All Paintings', icon: Grid },
+    { id: 'digital', label: 'Digital Painting', icon: Sparkles },
+    { id: 'crypto', label: 'Crypto Painting', icon: Bitcoin },
     { id: 'abstract', label: 'Abstract', icon: Grid },
     { id: 'landscape', label: 'Landscapes', icon: Grid },
     { id: 'generative', label: 'Generative', icon: Sparkles },
   ];
 
-  const filteredArtworks = artworks.filter(
+  const filteredPaintings = paintings.filter(
     (art) => selectedCategory === 'all' || art.category === selectedCategory
   );
 
@@ -134,10 +134,10 @@ export default function MarketplaceView() {
       >
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: 'white', marginBottom: '8px' }}>
-            Art Marketplace
+            Paint Marketplace
           </h1>
           <p style={{ color: '#999' }}>
-            Discover, collect, and trade unique digital artworks on Bitcoin
+            Discover, collect, and trade unique digital paintings on Bitcoin
           </p>
 
           {/* Search and Filters */}
@@ -157,7 +157,7 @@ export default function MarketplaceView() {
               <Search size={20} style={{ color: '#8b5cf6', marginRight: '12px' }} />
               <input
                 type="text"
-                placeholder="Search artworks, artists, or collections..."
+                placeholder="Search paintings, painters, or collections..."
                 style={{
                   flex: 1,
                   background: 'transparent',
@@ -247,7 +247,7 @@ export default function MarketplaceView() {
         </div>
       </div>
 
-      {/* Artworks Grid/List */}
+      {/* Paintings Grid/List */}
       <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {viewMode === 'grid' ? (
@@ -258,9 +258,9 @@ export default function MarketplaceView() {
                 gap: '24px',
               }}
             >
-              {filteredArtworks.map((artwork) => (
+              {filteredPaintings.map((painting) => (
                 <div
-                  key={artwork.id}
+                  key={painting.id}
                   style={{
                     background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
                     borderRadius: '16px',
@@ -278,7 +278,7 @@ export default function MarketplaceView() {
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
-                  {/* Artwork Image */}
+                  {/* Painting Image */}
                   <div
                     style={{
                       height: '280px',
@@ -286,7 +286,7 @@ export default function MarketplaceView() {
                       position: 'relative',
                     }}
                   >
-                    {artwork.isNew && (
+                    {painting.isNew && (
                       <span
                         style={{
                           position: 'absolute',
@@ -303,7 +303,7 @@ export default function MarketplaceView() {
                         NEW
                       </span>
                     )}
-                    {artwork.isTrending && (
+                    {painting.isTrending && (
                       <span
                         style={{
                           position: 'absolute',
@@ -330,35 +330,35 @@ export default function MarketplaceView() {
                         fontWeight: 'bold',
                       }}
                     >
-                      {artwork.title}
+                      {painting.title}
                     </div>
                   </div>
 
-                  {/* Artwork Details */}
+                  {/* Painting Details */}
                   <div style={{ padding: '16px' }}>
                     <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'white', marginBottom: '4px' }}>
-                      {artwork.title}
+                      {painting.title}
                     </h3>
                     <p style={{ fontSize: '14px', color: '#999', marginBottom: '12px' }}>
-                      by {artwork.artist}
+                      by {painting.painter}
                     </p>
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <Bitcoin size={18} color="#8b5cf6" />
                         <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#8b5cf6' }}>
-                          {artwork.price}
+                          {painting.price}
                         </span>
                       </div>
 
                       <div style={{ display: 'flex', gap: '12px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                           <Heart size={16} color="#999" />
-                          <span style={{ fontSize: '14px', color: '#999' }}>{artwork.likes}</span>
+                          <span style={{ fontSize: '14px', color: '#999' }}>{painting.likes}</span>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                           <Eye size={16} color="#999" />
-                          <span style={{ fontSize: '14px', color: '#999' }}>{artwork.views}</span>
+                          <span style={{ fontSize: '14px', color: '#999' }}>{painting.views}</span>
                         </div>
                       </div>
                     </div>
@@ -389,9 +389,9 @@ export default function MarketplaceView() {
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {filteredArtworks.map((artwork) => (
+              {filteredPaintings.map((painting) => (
                 <div
-                  key={artwork.id}
+                  key={painting.id}
                   style={{
                     display: 'flex',
                     background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
@@ -413,26 +413,26 @@ export default function MarketplaceView() {
                   />
                   <div style={{ flex: 1 }}>
                     <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'white', marginBottom: '4px' }}>
-                      {artwork.title}
+                      {painting.title}
                     </h3>
                     <p style={{ fontSize: '14px', color: '#999', marginBottom: '8px' }}>
-                      by {artwork.artist}
+                      by {painting.painter}
                     </p>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <Bitcoin size={18} color="#8b5cf6" />
                         <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#8b5cf6' }}>
-                          {artwork.price}
+                          {painting.price}
                         </span>
                       </div>
                       <div style={{ display: 'flex', gap: '12px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                           <Heart size={16} color="#999" />
-                          <span style={{ fontSize: '14px', color: '#999' }}>{artwork.likes}</span>
+                          <span style={{ fontSize: '14px', color: '#999' }}>{painting.likes}</span>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                           <Eye size={16} color="#999" />
-                          <span style={{ fontSize: '14px', color: '#999' }}>{artwork.views}</span>
+                          <span style={{ fontSize: '14px', color: '#999' }}>{painting.views}</span>
                         </div>
                       </div>
                     </div>

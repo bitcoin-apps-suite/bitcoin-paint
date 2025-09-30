@@ -6,33 +6,33 @@ import Providers from "@/components/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Bitcoin Art Gallery",
-  description: "Create, collect, and trade digital art NFTs on Bitcoin",
-  keywords: ["Bitcoin", "Art", "NFT", "Gallery", "Digital Art", "Blockchain", "Crypto Art"],
-  authors: [{ name: "Bitcoin Art Gallery" }],
-  creator: "Bitcoin Art Gallery",
-  publisher: "Bitcoin Art Gallery",
+  title: "Bitcoin Paint Studio",
+  description: "Create, collect, and trade digital painting NFTs on Bitcoin",
+  keywords: ["Bitcoin", "Paint", "NFT", "Studio", "Digital Painting", "Blockchain", "Crypto Painting"],
+  authors: [{ name: "Bitcoin Paint Studio" }],
+  creator: "Bitcoin Paint Studio",
+  publisher: "Bitcoin Paint Studio",
   openGraph: {
-    title: "Bitcoin Art Gallery",
-    description: "Create, collect, and trade digital art NFTs on Bitcoin",
+    title: "Bitcoin Paint Studio",
+    description: "Create, collect, and trade digital painting NFTs on Bitcoin",
     type: "website",
     locale: "en_US",
-    siteName: "Bitcoin Art Gallery",
+    siteName: "Bitcoin Paint Studio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bitcoin Art Gallery - Create & Trade Art NFTs",
+        alt: "Bitcoin Paint Studio - Create & Trade Painting NFTs",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bitcoin Art Gallery",
-    description: "Create, collect, and trade digital art NFTs on Bitcoin",
+    title: "Bitcoin Paint Studio",
+    description: "Create, collect, and trade digital painting NFTs on Bitcoin",
     images: ["/twitter-image.png"],
-    creator: "@bitcoinart",
+    creator: "@bitcoinpaint",
   },
   icons: {
     icon: "/icon.png",
