@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #ff6b00; /* Warm orange for art theme */
+  --secondary: #ffa500; /* Golden orange */
+  --accent: #ff8c42; /* Burnt orange accent */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --muted: #1a1a1a;
+  --border: rgba(255, 107, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-200;
+}
+
+/* Card styles */
+.art-card {
+  @apply bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-orange-900/20 shadow-xl;
+}
+
+/* Glow effect */
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+}

@@ -1,29 +1,23 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Bridge from '@bitcoin-os/bridge';
+import { useState } from 'react';
 
 export default function BitcoinConnect() {
   const [isConnected, setIsConnected] = useState(false);
   const [address, setAddress] = useState<string>('');
-  const [bridge, setBridge] = useState<Bridge | null>(null);
-
-  useEffect(() => {
-    const bridgeInstance = new Bridge();
-    setBridge(bridgeInstance);
-  }, []);
 
   const connectWallet = async () => {
-    if (!bridge) return;
-    
     try {
-      const connected = await bridge.connect();
-      if (connected) {
-        setIsConnected(true);
-        const accounts = await bridge.getAccounts();
+      // Check if window.bitcoin exists (for browser extensions like Alby, Xverse, etc.)
+      if (typeof window !== 'undefined' && (window as any).bitcoin) {
+        const bitcoin = (window as any).bitcoin;
+        const accounts = await bitcoin.requestAccounts();
         if (accounts && accounts.length > 0) {
+          setIsConnected(true);
           setAddress(accounts[0]);
         }
+      } else {
+        alert('Please install a Bitcoin wallet extension');
       }
     } catch (error) {
       console.error('Failed to connect:', error);
@@ -31,11 +25,8 @@ export default function BitcoinConnect() {
   };
 
   const disconnectWallet = () => {
-    if (bridge) {
-      bridge.disconnect();
-      setIsConnected(false);
-      setAddress('');
-    }
+    setIsConnected(false);
+    setAddress('');
   };
 
   return (
