@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@bitcoin-os/bridge'],
   webpack: (config, { isServer }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -15,10 +14,6 @@ const nextConfig = {
     }
     
     return config;
-  },
-  // Exclude bitcoin-art directory from build
-  experimental: {
-    externalDir: false,
   },
 };
 
