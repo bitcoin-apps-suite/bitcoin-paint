@@ -80,8 +80,16 @@ export default function HomePage() {
       style={{
         display: 'flex',
         flexDirection: 'column',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100vw',
         height: '100vh',
         background: '#0a0a0a',
+        margin: 0,
+        padding: 0,
       }}
     >
       {/* PoC Bar at the very top */}
