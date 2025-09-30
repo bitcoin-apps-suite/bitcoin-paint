@@ -120,7 +120,7 @@ export default function HomePage() {
           style={{
             width: `${sidebarWidth}px`,
             background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-            borderRight: '1px solid rgba(255, 107, 0, 0.2)',
+            borderRight: '1px solid rgba(139, 92, 246, 0.2)',
             display: 'flex',
             flexDirection: 'column',
             position: 'relative',
@@ -143,12 +143,12 @@ export default function HomePage() {
               bottom: 0,
               width: '4px',
               cursor: 'col-resize',
-              background: isResizing ? 'rgba(255, 107, 0, 0.5)' : 'transparent',
+              background: isResizing ? 'rgba(139, 92, 246, 0.5)' : 'transparent',
               transition: 'background 0.2s',
             }}
             onMouseEnter={(e) => {
               if (!isResizing) {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.3)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.3)';
               }
             }}
             onMouseLeave={(e) => {
@@ -187,12 +187,12 @@ export default function HomePage() {
           width: '56px',
           height: '56px',
           borderRadius: '50%',
-          background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+          background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
           border: 'none',
           color: 'white',
           fontSize: '24px',
           cursor: 'pointer',
-          boxShadow: '0 4px 12px rgba(255, 107, 0, 0.4)',
+          boxShadow: '0 4px 12px rgba(139, 92, 246, 0.4)',
           zIndex: 1000,
         }}
       >
@@ -231,7 +231,7 @@ export default function HomePage() {
               className="mobile-menu-header"
               style={{
                 padding: '20px',
-                borderBottom: '1px solid rgba(255, 107, 0, 0.2)',
+                borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -257,7 +257,7 @@ export default function HomePage() {
             </div>
             <div className="mobile-menu-content" style={{ flex: 1, padding: '20px' }}>
               <div className="mobile-menu-section" style={{ marginBottom: '30px' }}>
-                <h4 style={{ marginBottom: '15px', color: '#ff6b00' }}>Navigation</h4>
+                <h4 style={{ marginBottom: '15px', color: '#8b5cf6' }}>Navigation</h4>
                 <button
                   className={`mobile-menu-item ${currentView === 'studio' ? 'active' : ''}`}
                   onClick={() => {
@@ -267,7 +267,7 @@ export default function HomePage() {
                   style={{
                     width: '100%',
                     padding: '12px 16px',
-                    background: currentView === 'studio' ? 'rgba(255, 107, 0, 0.2)' : 'transparent',
+                    background: currentView === 'studio' ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                     border: 'none',
                     color: 'white',
                     display: 'flex',
@@ -290,7 +290,7 @@ export default function HomePage() {
                   style={{
                     width: '100%',
                     padding: '12px 16px',
-                    background: currentView === 'marketplace' ? 'rgba(255, 107, 0, 0.2)' : 'transparent',
+                    background: currentView === 'marketplace' ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                     border: 'none',
                     color: 'white',
                     display: 'flex',
@@ -313,7 +313,7 @@ export default function HomePage() {
                   style={{
                     width: '100%',
                     padding: '12px 16px',
-                    background: currentView === 'gallery' ? 'rgba(255, 107, 0, 0.2)' : 'transparent',
+                    background: currentView === 'gallery' ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                     border: 'none',
                     color: 'white',
                     display: 'flex',
@@ -336,7 +336,7 @@ export default function HomePage() {
                   style={{
                     width: '100%',
                     padding: '12px 16px',
-                    background: currentView === 'exchange' ? 'rgba(255, 107, 0, 0.2)' : 'transparent',
+                    background: currentView === 'exchange' ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                     border: 'none',
                     color: 'white',
                     display: 'flex',

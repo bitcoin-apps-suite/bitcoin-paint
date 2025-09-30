@@ -65,7 +65,7 @@ export default function ArtExchangeView() {
         style={{
           padding: '24px',
           background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-          borderBottom: '1px solid rgba(255, 107, 0, 0.2)',
+          borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
@@ -75,7 +75,7 @@ export default function ArtExchangeView() {
                 style={{
                   width: '48px',
                   height: '48px',
-                  background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+                  background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -101,7 +101,7 @@ export default function ArtExchangeView() {
           {/* Price Display */}
           <div style={{ textAlign: 'right' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end' }}>
-              <Bitcoin size={24} color="#ff6b00" />
+              <Bitcoin size={24} color="#8b5cf6" />
               <span style={{ fontSize: '32px', fontWeight: 'bold', color: 'white' }}>
                 {tokenStats.price.toFixed(6)}
               </span>
@@ -141,10 +141,10 @@ export default function ArtExchangeView() {
               onClick={() => setSelectedTab(tab.id as any)}
               style={{
                 padding: '10px 20px',
-                background: selectedTab === tab.id ? 'rgba(255, 107, 0, 0.2)' : 'transparent',
+                background: selectedTab === tab.id ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                 border: 'none',
                 borderRadius: '8px',
-                color: selectedTab === tab.id ? '#ff6b00' : '#999',
+                color: selectedTab === tab.id ? '#8b5cf6' : '#999',
                 fontSize: '16px',
                 fontWeight: selectedTab === tab.id ? 600 : 400,
                 cursor: 'pointer',
@@ -174,36 +174,36 @@ export default function ArtExchangeView() {
                 marginBottom: '32px',
               }}
             >
-              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <DollarSign size={16} color="#ff6b00" />
+                  <DollarSign size={16} color="#8b5cf6" />
                   <span style={{ fontSize: '14px', color: '#999' }}>Market Cap</span>
                 </div>
                 <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
                   ${(tokenStats.marketCap / 1000000).toFixed(2)}M
                 </p>
               </div>
-              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <Activity size={16} color="#ff6b00" />
+                  <Activity size={16} color="#8b5cf6" />
                   <span style={{ fontSize: '14px', color: '#999' }}>24h Volume</span>
                 </div>
                 <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
                   ${(tokenStats.volume24h / 1000).toFixed(0)}K
                 </p>
               </div>
-              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <Users size={16} color="#ff6b00" />
+                  <Users size={16} color="#8b5cf6" />
                   <span style={{ fontSize: '14px', color: '#999' }}>Holders</span>
                 </div>
                 <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
                   {tokenStats.holders.toLocaleString()}
                 </p>
               </div>
-              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div style={{ background: '#141414', padding: '20px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <Coins size={16} color="#ff6b00" />
+                  <Coins size={16} color="#8b5cf6" />
                   <span style={{ fontSize: '14px', color: '#999' }}>Circulating Supply</span>
                 </div>
                 <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
@@ -215,7 +215,7 @@ export default function ArtExchangeView() {
             {/* Chart and Recent Trades */}
             <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
               {/* Price Chart */}
-              <div style={{ background: '#141414', padding: '24px', borderRadius: '12px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div style={{ background: '#141414', padding: '24px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'white', marginBottom: '20px' }}>
                   Price Chart (24h)
                 </h3>
@@ -225,7 +225,7 @@ export default function ArtExchangeView() {
                       <div
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to top, #ff6b00, #ff8c42)',
+                          background: 'linear-gradient(to top, #8b5cf6, #c084fc)',
                           borderRadius: '4px 4px 0 0',
                           height: `${((point.price - 0.00037) / 0.00006) * 250}px`,
                         }}
@@ -237,7 +237,7 @@ export default function ArtExchangeView() {
               </div>
 
               {/* Recent Trades */}
-              <div style={{ background: '#141414', padding: '24px', borderRadius: '12px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div style={{ background: '#141414', padding: '24px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'white', marginBottom: '20px' }}>
                   Recent Trades
                 </h3>
@@ -250,7 +250,7 @@ export default function ArtExchangeView() {
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         padding: '12px',
-                        background: 'rgba(255, 107, 0, 0.05)',
+                        background: 'rgba(139, 92, 246, 0.05)',
                         borderRadius: '8px',
                       }}
                     >
@@ -273,7 +273,7 @@ export default function ArtExchangeView() {
                         <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>{trade.user}</p>
                       </div>
                       <div style={{ textAlign: 'right' }}>
-                        <p style={{ fontSize: '14px', color: '#ff6b00' }}>{trade.price}</p>
+                        <p style={{ fontSize: '14px', color: '#8b5cf6' }}>{trade.price}</p>
                         <p style={{ fontSize: '12px', color: '#666' }}>{trade.time}</p>
                       </div>
                     </div>
@@ -288,11 +288,11 @@ export default function ArtExchangeView() {
                 background: '#141414',
                 padding: '24px',
                 borderRadius: '12px',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
                 marginTop: '24px',
               }}
             >
-              <h3 style={{ fontSize: '20px', fontWeight: 600, color: '#ff6b00', marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 600, color: '#8b5cf6', marginBottom: '20px' }}>
                 About $bArt Token
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
@@ -330,7 +330,7 @@ export default function ArtExchangeView() {
 
         {selectedTab === 'trade' && (
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <div style={{ background: '#141414', padding: '32px', borderRadius: '16px', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+            <div style={{ background: '#141414', padding: '32px', borderRadius: '16px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
               {/* Trade Type Toggle */}
               <div style={{ display: 'flex', marginBottom: '24px' }}>
                 <button
@@ -379,8 +379,8 @@ export default function ArtExchangeView() {
                   style={{
                     width: '100%',
                     padding: '16px',
-                    background: 'rgba(255, 107, 0, 0.1)',
-                    border: '2px solid rgba(255, 107, 0, 0.3)',
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    border: '2px solid rgba(139, 92, 246, 0.3)',
                     borderRadius: '8px',
                     color: 'white',
                     fontSize: '18px',
@@ -394,10 +394,10 @@ export default function ArtExchangeView() {
                       style={{
                         flex: 1,
                         padding: '6px',
-                        background: 'rgba(255, 107, 0, 0.1)',
-                        border: '1px solid rgba(255, 107, 0, 0.3)',
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.3)',
                         borderRadius: '4px',
-                        color: '#ff6b00',
+                        color: '#8b5cf6',
                         fontSize: '12px',
                         cursor: 'pointer',
                       }}
@@ -409,7 +409,7 @@ export default function ArtExchangeView() {
               </div>
 
               {/* Price Info */}
-              <div style={{ marginBottom: '24px', padding: '16px', background: 'rgba(255, 107, 0, 0.05)', borderRadius: '8px' }}>
+              <div style={{ marginBottom: '24px', padding: '16px', background: 'rgba(139, 92, 246, 0.05)', borderRadius: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                   <span style={{ color: '#999', fontSize: '14px' }}>Price per $bArt</span>
                   <span style={{ color: 'white', fontSize: '14px' }}>{tokenStats.price} BTC</span>
@@ -468,7 +468,7 @@ export default function ArtExchangeView() {
                   key={tier.level}
                   style={{
                     background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-                    border: tier.level === 'Gold' ? '2px solid #ff6b00' : '1px solid rgba(255, 107, 0, 0.2)',
+                    border: tier.level === 'Gold' ? '2px solid #8b5cf6' : '1px solid rgba(139, 92, 246, 0.2)',
                     borderRadius: '16px',
                     padding: '24px',
                     position: 'relative',
@@ -482,7 +482,7 @@ export default function ArtExchangeView() {
                         left: '50%',
                         transform: 'translateX(-50%)',
                         padding: '4px 16px',
-                        background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+                        background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
                         color: 'white',
                         borderRadius: '20px',
                         fontSize: '12px',
@@ -493,7 +493,7 @@ export default function ArtExchangeView() {
                     </span>
                   )}
                   <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    <Award size={48} color={tier.level === 'Diamond' ? '#ff6b00' : '#666'} />
+                    <Award size={48} color={tier.level === 'Diamond' ? '#8b5cf6' : '#666'} />
                     <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: 'white', marginTop: '12px' }}>
                       {tier.level}
                     </h3>
@@ -504,13 +504,13 @@ export default function ArtExchangeView() {
                   <div
                     style={{
                       padding: '16px',
-                      background: 'rgba(255, 107, 0, 0.1)',
+                      background: 'rgba(139, 92, 246, 0.1)',
                       borderRadius: '8px',
                       textAlign: 'center',
                       marginBottom: '20px',
                     }}
                   >
-                    <p style={{ fontSize: '32px', fontWeight: 'bold', color: '#ff6b00' }}>
+                    <p style={{ fontSize: '32px', fontWeight: 'bold', color: '#8b5cf6' }}>
                       {tier.apy}%
                     </p>
                     <p style={{ fontSize: '14px', color: '#999' }}>APY</p>
@@ -529,10 +529,10 @@ export default function ArtExchangeView() {
                     style={{
                       width: '100%',
                       padding: '12px',
-                      background: tier.level === 'Gold' ? 'linear-gradient(135deg, #ff6b00, #ff8c42)' : 'rgba(255, 107, 0, 0.2)',
+                      background: tier.level === 'Gold' ? 'linear-gradient(135deg, #8b5cf6, #c084fc)' : 'rgba(139, 92, 246, 0.2)',
                       border: 'none',
                       borderRadius: '8px',
-                      color: tier.level === 'Gold' ? 'white' : '#ff6b00',
+                      color: tier.level === 'Gold' ? 'white' : '#8b5cf6',
                       fontWeight: 600,
                       cursor: 'pointer',
                     }}

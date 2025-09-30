@@ -34,7 +34,7 @@ export default function BitcoinConnect() {
       {!isConnected ? (
         <button
           onClick={connectWallet}
-          className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          className="px-6 py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
         >
           Connect Bitcoin Wallet
         </button>

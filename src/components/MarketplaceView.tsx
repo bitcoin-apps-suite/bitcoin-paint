@@ -129,7 +129,7 @@ export default function MarketplaceView() {
         style={{
           padding: '24px',
           background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-          borderBottom: '1px solid rgba(255, 107, 0, 0.2)',
+          borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
         }}
       >
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -148,13 +148,13 @@ export default function MarketplaceView() {
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
-                background: 'rgba(255, 107, 0, 0.1)',
+                background: 'rgba(139, 92, 246, 0.1)',
                 borderRadius: '12px',
                 padding: '12px 16px',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
               }}
             >
-              <Search size={20} style={{ color: '#ff6b00', marginRight: '12px' }} />
+              <Search size={20} style={{ color: '#8b5cf6', marginRight: '12px' }} />
               <input
                 type="text"
                 placeholder="Search artworks, artists, or collections..."
@@ -174,10 +174,10 @@ export default function MarketplaceView() {
               onChange={(e) => setSortBy(e.target.value)}
               style={{
                 padding: '12px 16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '12px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
                 outline: 'none',
               }}
@@ -194,10 +194,10 @@ export default function MarketplaceView() {
                 onClick={() => setViewMode('grid')}
                 style={{
                   padding: '12px',
-                  background: viewMode === 'grid' ? 'rgba(255, 107, 0, 0.2)' : 'rgba(255, 107, 0, 0.1)',
-                  border: '1px solid rgba(255, 107, 0, 0.3)',
+                  background: viewMode === 'grid' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)',
+                  border: '1px solid rgba(139, 92, 246, 0.3)',
                   borderRadius: '8px',
-                  color: '#ff6b00',
+                  color: '#8b5cf6',
                   cursor: 'pointer',
                 }}
               >
@@ -207,10 +207,10 @@ export default function MarketplaceView() {
                 onClick={() => setViewMode('list')}
                 style={{
                   padding: '12px',
-                  background: viewMode === 'list' ? 'rgba(255, 107, 0, 0.2)' : 'rgba(255, 107, 0, 0.1)',
-                  border: '1px solid rgba(255, 107, 0, 0.3)',
+                  background: viewMode === 'list' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)',
+                  border: '1px solid rgba(139, 92, 246, 0.3)',
                   borderRadius: '8px',
-                  color: '#ff6b00',
+                  color: '#8b5cf6',
                   cursor: 'pointer',
                 }}
               >
@@ -227,10 +227,10 @@ export default function MarketplaceView() {
                 onClick={() => setSelectedCategory(cat.id)}
                 style={{
                   padding: '8px 16px',
-                  background: selectedCategory === cat.id ? 'linear-gradient(135deg, #ff6b00, #ff8c42)' : 'rgba(255, 107, 0, 0.1)',
+                  background: selectedCategory === cat.id ? 'linear-gradient(135deg, #8b5cf6, #c084fc)' : 'rgba(139, 92, 246, 0.1)',
                   border: 'none',
                   borderRadius: '20px',
-                  color: selectedCategory === cat.id ? 'white' : '#ff6b00',
+                  color: selectedCategory === cat.id ? 'white' : '#8b5cf6',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -265,13 +265,13 @@ export default function MarketplaceView() {
                     background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
                     borderRadius: '16px',
                     overflow: 'hidden',
-                    border: '1px solid rgba(255, 107, 0, 0.2)',
+                    border: '1px solid rgba(139, 92, 246, 0.2)',
                     cursor: 'pointer',
                     transition: 'transform 0.3s, box-shadow 0.3s',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(255, 107, 0, 0.3)';
+                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(139, 92, 246, 0.3)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
@@ -282,7 +282,7 @@ export default function MarketplaceView() {
                   <div
                     style={{
                       height: '280px',
-                      background: `linear-gradient(135deg, #ff6b00, #ff8c42)`,
+                      background: `linear-gradient(135deg, #8b5cf6, #c084fc)`,
                       position: 'relative',
                     }}
                   >
@@ -293,7 +293,7 @@ export default function MarketplaceView() {
                           top: '12px',
                           left: '12px',
                           padding: '4px 12px',
-                          background: 'rgba(255, 107, 0, 0.9)',
+                          background: 'rgba(139, 92, 246, 0.9)',
                           color: 'white',
                           borderRadius: '20px',
                           fontSize: '12px',
@@ -311,7 +311,7 @@ export default function MarketplaceView() {
                           right: '12px',
                           padding: '4px',
                           background: 'rgba(0, 0, 0, 0.7)',
-                          color: '#ff6b00',
+                          color: '#8b5cf6',
                           borderRadius: '50%',
                         }}
                       >
@@ -345,8 +345,8 @@ export default function MarketplaceView() {
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <Bitcoin size={18} color="#ff6b00" />
-                        <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff6b00' }}>
+                        <Bitcoin size={18} color="#8b5cf6" />
+                        <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#8b5cf6' }}>
                           {artwork.price}
                         </span>
                       </div>
@@ -368,7 +368,7 @@ export default function MarketplaceView() {
                         width: '100%',
                         marginTop: '12px',
                         padding: '10px',
-                        background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+                        background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
                         border: 'none',
                         borderRadius: '8px',
                         color: 'white',
@@ -396,7 +396,7 @@ export default function MarketplaceView() {
                     display: 'flex',
                     background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
                     borderRadius: '12px',
-                    border: '1px solid rgba(255, 107, 0, 0.2)',
+                    border: '1px solid rgba(139, 92, 246, 0.2)',
                     padding: '16px',
                     gap: '16px',
                     alignItems: 'center',
@@ -406,7 +406,7 @@ export default function MarketplaceView() {
                     style={{
                       width: '120px',
                       height: '120px',
-                      background: `linear-gradient(135deg, #ff6b00, #ff8c42)`,
+                      background: `linear-gradient(135deg, #8b5cf6, #c084fc)`,
                       borderRadius: '8px',
                       flexShrink: 0,
                     }}
@@ -420,8 +420,8 @@ export default function MarketplaceView() {
                     </p>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <Bitcoin size={18} color="#ff6b00" />
-                        <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff6b00' }}>
+                        <Bitcoin size={18} color="#8b5cf6" />
+                        <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#8b5cf6' }}>
                           {artwork.price}
                         </span>
                       </div>
@@ -440,7 +440,7 @@ export default function MarketplaceView() {
                   <button
                     style={{
                       padding: '10px 20px',
-                      background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+                      background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
                       border: 'none',
                       borderRadius: '8px',
                       color: 'white',

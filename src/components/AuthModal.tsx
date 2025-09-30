@@ -56,7 +56,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
           maxWidth: '480px',
           background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
           borderRadius: '20px',
-          border: '1px solid rgba(255, 107, 0, 0.3)',
+          border: '1px solid rgba(139, 92, 246, 0.3)',
           padding: '32px',
           margin: '20px',
         }}
@@ -68,8 +68,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
             position: 'absolute',
             top: '20px',
             right: '20px',
-            background: 'rgba(255, 107, 0, 0.1)',
-            border: '1px solid rgba(255, 107, 0, 0.3)',
+            background: 'rgba(139, 92, 246, 0.1)',
+            border: '1px solid rgba(139, 92, 246, 0.3)',
             borderRadius: '50%',
             width: '36px',
             height: '36px',
@@ -77,7 +77,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            color: '#ff6b00',
+            color: '#8b5cf6',
           }}
         >
           <X size={20} />
@@ -89,7 +89,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
             style={{
               width: '64px',
               height: '64px',
-              background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+              background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
               borderRadius: '16px',
               display: 'flex',
               alignItems: 'center',
@@ -112,16 +112,16 @@ export default function AuthModal({ onClose }: AuthModalProps) {
         </div>
 
         {/* Auth Mode Tabs */}
-        <div style={{ display: 'flex', marginBottom: '24px', background: 'rgba(255, 107, 0, 0.1)', borderRadius: '12px', padding: '4px' }}>
+        <div style={{ display: 'flex', marginBottom: '24px', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '12px', padding: '4px' }}>
           <button
             onClick={() => setAuthMode('login')}
             style={{
               flex: 1,
               padding: '10px',
-              background: authMode === 'login' ? 'rgba(255, 107, 0, 0.3)' : 'transparent',
+              background: authMode === 'login' ? 'rgba(139, 92, 246, 0.3)' : 'transparent',
               border: 'none',
               borderRadius: '8px',
-              color: authMode === 'login' ? '#ff6b00' : '#999',
+              color: authMode === 'login' ? '#8b5cf6' : '#999',
               fontWeight: authMode === 'login' ? 600 : 400,
               cursor: 'pointer',
               transition: 'all 0.2s',
@@ -134,10 +134,10 @@ export default function AuthModal({ onClose }: AuthModalProps) {
             style={{
               flex: 1,
               padding: '10px',
-              background: authMode === 'register' ? 'rgba(255, 107, 0, 0.3)' : 'transparent',
+              background: authMode === 'register' ? 'rgba(139, 92, 246, 0.3)' : 'transparent',
               border: 'none',
               borderRadius: '8px',
-              color: authMode === 'register' ? '#ff6b00' : '#999',
+              color: authMode === 'register' ? '#8b5cf6' : '#999',
               fontWeight: authMode === 'register' ? 600 : 400,
               cursor: 'pointer',
               transition: 'all 0.2s',
@@ -150,10 +150,10 @@ export default function AuthModal({ onClose }: AuthModalProps) {
             style={{
               flex: 1,
               padding: '10px',
-              background: authMode === 'wallet' ? 'rgba(255, 107, 0, 0.3)' : 'transparent',
+              background: authMode === 'wallet' ? 'rgba(139, 92, 246, 0.3)' : 'transparent',
               border: 'none',
               borderRadius: '8px',
-              color: authMode === 'wallet' ? '#ff6b00' : '#999',
+              color: authMode === 'wallet' ? '#8b5cf6' : '#999',
               fontWeight: authMode === 'wallet' ? 600 : 400,
               cursor: 'pointer',
               transition: 'all 0.2s',
@@ -191,8 +191,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                     style={{
                       width: '100%',
                       padding: '12px 16px 12px 48px',
-                      background: 'rgba(255, 107, 0, 0.1)',
-                      border: '2px solid rgba(255, 107, 0, 0.2)',
+                      background: 'rgba(139, 92, 246, 0.1)',
+                      border: '2px solid rgba(139, 92, 246, 0.2)',
                       borderRadius: '10px',
                       color: 'white',
                       fontSize: '16px',
@@ -200,10 +200,10 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                       transition: 'border 0.2s',
                     }}
                     onFocus={(e) => {
-                      e.target.style.borderColor = 'rgba(255, 107, 0, 0.5)';
+                      e.target.style.borderColor = 'rgba(139, 92, 246, 0.5)';
                     }}
                     onBlur={(e) => {
-                      e.target.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                      e.target.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                     }}
                   />
                 </div>
@@ -234,8 +234,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                   style={{
                     width: '100%',
                     padding: '12px 16px 12px 48px',
-                    background: 'rgba(255, 107, 0, 0.1)',
-                    border: '2px solid rgba(255, 107, 0, 0.2)',
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    border: '2px solid rgba(139, 92, 246, 0.2)',
                     borderRadius: '10px',
                     color: 'white',
                     fontSize: '16px',
@@ -243,10 +243,10 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                     transition: 'border 0.2s',
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = 'rgba(255, 107, 0, 0.5)';
+                    e.target.style.borderColor = 'rgba(139, 92, 246, 0.5)';
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                    e.target.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                   }}
                 />
               </div>
@@ -276,8 +276,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                   style={{
                     width: '100%',
                     padding: '12px 16px 12px 48px',
-                    background: 'rgba(255, 107, 0, 0.1)',
-                    border: '2px solid rgba(255, 107, 0, 0.2)',
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    border: '2px solid rgba(139, 92, 246, 0.2)',
                     borderRadius: '10px',
                     color: 'white',
                     fontSize: '16px',
@@ -285,10 +285,10 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                     transition: 'border 0.2s',
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = 'rgba(255, 107, 0, 0.5)';
+                    e.target.style.borderColor = 'rgba(139, 92, 246, 0.5)';
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                    e.target.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                   }}
                 />
               </div>
@@ -300,7 +300,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                   <input type="checkbox" />
                   <span style={{ fontSize: '14px', color: '#999' }}>Remember me</span>
                 </label>
-                <a href="#" style={{ fontSize: '14px', color: '#ff6b00', textDecoration: 'none' }}>
+                <a href="#" style={{ fontSize: '14px', color: '#8b5cf6', textDecoration: 'none' }}>
                   Forgot password?
                 </a>
               </div>
@@ -311,7 +311,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
               style={{
                 width: '100%',
                 padding: '14px',
-                background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+                background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
                 border: 'none',
                 borderRadius: '10px',
                 color: 'white',
@@ -335,8 +335,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
               style={{
                 width: '100%',
                 padding: '16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '2px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '2px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '10px',
                 color: 'white',
                 fontSize: '16px',
@@ -347,12 +347,12 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.2)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.4)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
               }}
             >
               <Wallet size={20} />
@@ -363,8 +363,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
               style={{
                 width: '100%',
                 padding: '16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '2px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '2px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '10px',
                 color: 'white',
                 fontSize: '16px',
@@ -375,12 +375,12 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.2)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.4)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
               }}
             >
               <Wallet size={20} />
@@ -391,8 +391,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
               style={{
                 width: '100%',
                 padding: '16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '2px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '2px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '10px',
                 color: 'white',
                 fontSize: '16px',
@@ -403,12 +403,12 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.2)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.4)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
               }}
             >
               <Wallet size={20} />
@@ -419,8 +419,8 @@ export default function AuthModal({ onClose }: AuthModalProps) {
               style={{
                 width: '100%',
                 padding: '16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '2px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '2px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '10px',
                 color: 'white',
                 fontSize: '16px',
@@ -431,12 +431,12 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.2)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.4)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
-                e.currentTarget.style.borderColor = 'rgba(255, 107, 0, 0.2)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
               }}
             >
               <Wallet size={20} />
@@ -447,9 +447,9 @@ export default function AuthModal({ onClose }: AuthModalProps) {
 
         {/* Divider */}
         <div style={{ display: 'flex', alignItems: 'center', margin: '24px 0' }}>
-          <div style={{ flex: 1, height: '1px', background: 'rgba(255, 107, 0, 0.2)' }} />
+          <div style={{ flex: 1, height: '1px', background: 'rgba(139, 92, 246, 0.2)' }} />
           <span style={{ padding: '0 16px', color: '#666', fontSize: '14px' }}>OR</span>
-          <div style={{ flex: 1, height: '1px', background: 'rgba(255, 107, 0, 0.2)' }} />
+          <div style={{ flex: 1, height: '1px', background: 'rgba(139, 92, 246, 0.2)' }} />
         </div>
 
         {/* Alternative Auth */}
@@ -459,9 +459,9 @@ export default function AuthModal({ onClose }: AuthModalProps) {
             width: '100%',
             padding: '12px',
             background: 'transparent',
-            border: '2px solid rgba(255, 107, 0, 0.3)',
+            border: '2px solid rgba(139, 92, 246, 0.3)',
             borderRadius: '10px',
-            color: '#ff6b00',
+            color: '#8b5cf6',
             fontSize: '16px',
             cursor: 'pointer',
             display: 'flex',
@@ -485,7 +485,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                   e.preventDefault();
                   setAuthMode('register');
                 }}
-                style={{ color: '#ff6b00', textDecoration: 'none' }}
+                style={{ color: '#8b5cf6', textDecoration: 'none' }}
               >
                 Sign up
               </a>
@@ -499,7 +499,7 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                   e.preventDefault();
                   setAuthMode('login');
                 }}
-                style={{ color: '#ff6b00', textDecoration: 'none' }}
+                style={{ color: '#8b5cf6', textDecoration: 'none' }}
               >
                 Sign in
               </a>
@@ -507,11 +507,11 @@ export default function AuthModal({ onClose }: AuthModalProps) {
           ) : (
             <>
               By connecting, you agree to our{' '}
-              <a href="#" style={{ color: '#ff6b00', textDecoration: 'none' }}>
+              <a href="#" style={{ color: '#8b5cf6', textDecoration: 'none' }}>
                 Terms
               </a>{' '}
               and{' '}
-              <a href="#" style={{ color: '#ff6b00', textDecoration: 'none' }}>
+              <a href="#" style={{ color: '#8b5cf6', textDecoration: 'none' }}>
                 Privacy Policy
               </a>
             </>

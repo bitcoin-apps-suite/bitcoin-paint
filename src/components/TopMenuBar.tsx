@@ -313,7 +313,7 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
           onDoubleClick={() => window.location.href = '/'}
           title="Click for apps • Double-click to go home"
           style={{ 
-            background: showBAppsMenu ? 'rgba(255, 107, 0, 0.1)' : 'transparent',
+            background: showBAppsMenu ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
             border: 'none',
             cursor: 'pointer',
             padding: '0 12px',
@@ -335,7 +335,7 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
             minWidth: '220px',
             background: '#1a1a1a',
             backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(255, 107, 0, 0.3)',
+            border: '1px solid rgba(139, 92, 246, 0.3)',
             borderRadius: '8px',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.8)',
             padding: '8px 0',
@@ -344,9 +344,9 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
             <div style={{
               padding: '8px 16px',
               fontSize: '12px',
-              color: '#ff6b00',
+              color: '#8b5cf6',
               fontWeight: '600',
-              borderBottom: '1px solid rgba(255, 107, 0, 0.2)',
+              borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
               marginBottom: '4px'
             }}>
               Bitcoin Apps
@@ -376,7 +376,7 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
                   }
                   setShowBAppsMenu(false)
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)'}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)'}
                 onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
               >
                 <span 

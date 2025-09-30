@@ -92,7 +92,7 @@ export default function GalleryView() {
         style={{
           padding: '24px',
           background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-          borderBottom: '1px solid rgba(255, 107, 0, 0.2)',
+          borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
@@ -107,7 +107,7 @@ export default function GalleryView() {
           <button
             style={{
               padding: '12px 24px',
-              background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+              background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
               border: 'none',
               borderRadius: '12px',
               color: 'white',
@@ -131,8 +131,8 @@ export default function GalleryView() {
               padding: '8px 0',
               background: 'none',
               border: 'none',
-              borderBottom: activeTab === 'created' ? '2px solid #ff6b00' : '2px solid transparent',
-              color: activeTab === 'created' ? '#ff6b00' : '#999',
+              borderBottom: activeTab === 'created' ? '2px solid #8b5cf6' : '2px solid transparent',
+              color: activeTab === 'created' ? '#8b5cf6' : '#999',
               fontSize: '16px',
               fontWeight: activeTab === 'created' ? 600 : 400,
               cursor: 'pointer',
@@ -147,8 +147,8 @@ export default function GalleryView() {
               padding: '8px 0',
               background: 'none',
               border: 'none',
-              borderBottom: activeTab === 'collected' ? '2px solid #ff6b00' : '2px solid transparent',
-              color: activeTab === 'collected' ? '#ff6b00' : '#999',
+              borderBottom: activeTab === 'collected' ? '2px solid #8b5cf6' : '2px solid transparent',
+              color: activeTab === 'collected' ? '#8b5cf6' : '#999',
               fontSize: '16px',
               fontWeight: activeTab === 'collected' ? 600 : 400,
               cursor: 'pointer',
@@ -163,8 +163,8 @@ export default function GalleryView() {
               padding: '8px 0',
               background: 'none',
               border: 'none',
-              borderBottom: activeTab === 'favorites' ? '2px solid #ff6b00' : '2px solid transparent',
-              color: activeTab === 'favorites' ? '#ff6b00' : '#999',
+              borderBottom: activeTab === 'favorites' ? '2px solid #8b5cf6' : '2px solid transparent',
+              color: activeTab === 'favorites' ? '#8b5cf6' : '#999',
               fontSize: '16px',
               fontWeight: activeTab === 'favorites' ? 600 : 400,
               cursor: 'pointer',
@@ -181,10 +181,10 @@ export default function GalleryView() {
             <button
               style={{
                 padding: '8px 16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '8px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -198,10 +198,10 @@ export default function GalleryView() {
             <select
               style={{
                 padding: '8px 16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '8px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
                 outline: 'none',
                 fontSize: '14px',
@@ -219,10 +219,10 @@ export default function GalleryView() {
               onClick={() => setViewMode('grid')}
               style={{
                 padding: '8px',
-                background: viewMode === 'grid' ? 'rgba(255, 107, 0, 0.2)' : 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.3)',
+                background: viewMode === 'grid' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
                 borderRadius: '8px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
               }}
             >
@@ -232,10 +232,10 @@ export default function GalleryView() {
               onClick={() => setViewMode('list')}
               style={{
                 padding: '8px',
-                background: viewMode === 'list' ? 'rgba(255, 107, 0, 0.2)' : 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.3)',
+                background: viewMode === 'list' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
                 borderRadius: '8px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
               }}
             >
@@ -264,7 +264,7 @@ export default function GalleryView() {
             <button
               style={{
                 padding: '10px 20px',
-                background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+                background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
                 border: 'none',
                 borderRadius: '8px',
                 color: 'white',
@@ -290,7 +290,7 @@ export default function GalleryView() {
                   background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
                   borderRadius: '12px',
                   overflow: 'hidden',
-                  border: selectedItems.includes(item.id) ? '2px solid #ff6b00' : '1px solid rgba(255, 107, 0, 0.2)',
+                  border: selectedItems.includes(item.id) ? '2px solid #8b5cf6' : '1px solid rgba(139, 92, 246, 0.2)',
                   cursor: 'pointer',
                   transition: 'all 0.3s',
                 }}
@@ -304,7 +304,7 @@ export default function GalleryView() {
                 <div
                   style={{
                     height: '200px',
-                    background: `linear-gradient(135deg, #ff6b00, #ff8c42)`,
+                    background: `linear-gradient(135deg, #8b5cf6, #c084fc)`,
                     position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
@@ -317,7 +317,7 @@ export default function GalleryView() {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'rgba(255, 107, 0, 0.3)',
+                        background: 'rgba(139, 92, 246, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -328,7 +328,7 @@ export default function GalleryView() {
                           width: '32px',
                           height: '32px',
                           borderRadius: '50%',
-                          background: '#ff6b00',
+                          background: '#8b5cf6',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -361,7 +361,7 @@ export default function GalleryView() {
                       </div>
                     </div>
                     {item.price && (
-                      <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#ff6b00' }}>
+                      <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#8b5cf6' }}>
                         {item.price} BTC
                       </span>
                     )}
@@ -373,10 +373,10 @@ export default function GalleryView() {
                       style={{
                         flex: 1,
                         padding: '6px',
-                        background: 'rgba(255, 107, 0, 0.1)',
-                        border: '1px solid rgba(255, 107, 0, 0.2)',
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.2)',
                         borderRadius: '6px',
-                        color: '#ff6b00',
+                        color: '#8b5cf6',
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
@@ -392,10 +392,10 @@ export default function GalleryView() {
                       style={{
                         flex: 1,
                         padding: '6px',
-                        background: 'rgba(255, 107, 0, 0.1)',
-                        border: '1px solid rgba(255, 107, 0, 0.2)',
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.2)',
                         borderRadius: '6px',
-                        color: '#ff6b00',
+                        color: '#8b5cf6',
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
@@ -411,10 +411,10 @@ export default function GalleryView() {
                       style={{
                         flex: 1,
                         padding: '6px',
-                        background: 'rgba(255, 107, 0, 0.1)',
-                        border: '1px solid rgba(255, 107, 0, 0.2)',
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.2)',
                         borderRadius: '6px',
-                        color: '#ff6b00',
+                        color: '#8b5cf6',
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
@@ -440,7 +440,7 @@ export default function GalleryView() {
                   display: 'flex',
                   background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
                   borderRadius: '12px',
-                  border: selectedItems.includes(item.id) ? '2px solid #ff6b00' : '1px solid rgba(255, 107, 0, 0.2)',
+                  border: selectedItems.includes(item.id) ? '2px solid #8b5cf6' : '1px solid rgba(139, 92, 246, 0.2)',
                   padding: '16px',
                   gap: '16px',
                   alignItems: 'center',
@@ -456,7 +456,7 @@ export default function GalleryView() {
                   style={{
                     width: '80px',
                     height: '80px',
-                    background: `linear-gradient(135deg, #ff6b00, #ff8c42)`,
+                    background: `linear-gradient(135deg, #8b5cf6, #c084fc)`,
                     borderRadius: '8px',
                     flexShrink: 0,
                     display: 'flex',
@@ -486,7 +486,7 @@ export default function GalleryView() {
                     </div>
                   </div>
                   {item.price && (
-                    <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#ff6b00' }}>
+                    <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#8b5cf6' }}>
                       {item.price} BTC
                     </span>
                   )}
@@ -494,10 +494,10 @@ export default function GalleryView() {
                     <button
                       style={{
                         padding: '8px',
-                        background: 'rgba(255, 107, 0, 0.1)',
-                        border: '1px solid rgba(255, 107, 0, 0.2)',
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.2)',
                         borderRadius: '6px',
-                        color: '#ff6b00',
+                        color: '#8b5cf6',
                         cursor: 'pointer',
                       }}
                       onClick={(e) => {
@@ -509,10 +509,10 @@ export default function GalleryView() {
                     <button
                       style={{
                         padding: '8px',
-                        background: 'rgba(255, 107, 0, 0.1)',
-                        border: '1px solid rgba(255, 107, 0, 0.2)',
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.2)',
                         borderRadius: '6px',
-                        color: '#ff6b00',
+                        color: '#8b5cf6',
                         cursor: 'pointer',
                       }}
                       onClick={(e) => {
@@ -535,23 +535,23 @@ export default function GalleryView() {
           style={{
             padding: '16px 24px',
             background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-            borderTop: '1px solid rgba(255, 107, 0, 0.2)',
+            borderTop: '1px solid rgba(139, 92, 246, 0.2)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
         >
-          <span style={{ color: '#ff6b00', fontWeight: 600 }}>
+          <span style={{ color: '#8b5cf6', fontWeight: 600 }}>
             {selectedItems.length} item{selectedItems.length !== 1 ? 's' : ''} selected
           </span>
           <div style={{ display: 'flex', gap: '12px' }}>
             <button
               style={{
                 padding: '8px 16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '8px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
               }}
             >
@@ -560,10 +560,10 @@ export default function GalleryView() {
             <button
               style={{
                 padding: '8px 16px',
-                background: 'rgba(255, 107, 0, 0.1)',
-                border: '1px solid rgba(255, 107, 0, 0.2)',
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.2)',
                 borderRadius: '8px',
-                color: '#ff6b00',
+                color: '#8b5cf6',
                 cursor: 'pointer',
               }}
             >

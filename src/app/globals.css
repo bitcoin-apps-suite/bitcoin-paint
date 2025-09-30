@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --primary: #ff6b00; /* Warm orange for art theme */
-  --secondary: #ffa500; /* Golden orange */
-  --accent: #ff8c42; /* Burnt orange accent */
+  --primary: #8b5cf6; /* Vibrant purple for art */
+  --primary-dark: #7c3aed; /* Deeper purple */
+  --primary-light: #a78bfa; /* Lighter purple */
+  --secondary: #e5e7eb; /* Silver */
+  --secondary-dark: #d1d5db; /* Darker silver */
+  --secondary-light: #f3f4f6; /* Light silver */
+  --accent: #c084fc; /* Purple-pink blend */
   --background: #0a0a0a;
-  --foreground: #ffffff;
+  --foreground: #f3f4f6;
   --muted: #1a1a1a;
-  --border: rgba(255, 107, 0, 0.2);
+  --border: rgba(139, 92, 246, 0.2);
 }
 
 * {
@@ -70,7 +74,7 @@ body {
 
 /* Button styles */
 .btn-primary {
-  @apply px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl;
+  @apply px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl;
 }
 
 .btn-secondary {
@@ -79,10 +83,10 @@ body {
 
 /* Card styles */
 .art-card {
-  @apply bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-orange-900/20 shadow-xl;
+  @apply bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-purple-900/20 shadow-xl;
 }
 
 /* Glow effect */
-.glow-orange {
-  box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }

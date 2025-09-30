@@ -15,7 +15,7 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
       style={{
         height: '60px',
         background: 'linear-gradient(90deg, #1a1a1a 0%, #141414 100%)',
-        borderBottom: '1px solid rgba(255, 107, 0, 0.2)',
+        borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -37,7 +37,7 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
           style={{
             width: '36px',
             height: '36px',
-            background: 'linear-gradient(135deg, #ff6b00, #ff8c42)',
+            background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
@@ -66,13 +66,13 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
           alignItems: 'center',
           gap: '8px',
           padding: '8px 16px',
-          background: 'rgba(255, 107, 0, 0.1)',
+          background: 'rgba(139, 92, 246, 0.1)',
           borderRadius: '20px',
-          border: '1px solid rgba(255, 107, 0, 0.3)',
+          border: '1px solid rgba(139, 92, 246, 0.3)',
         }}
       >
-        <Bitcoin size={16} color="#ff6b00" />
-        <span style={{ fontSize: '14px', color: '#ff6b00' }}>
+        <Bitcoin size={16} color="#8b5cf6" />
+        <span style={{ fontSize: '14px', color: '#8b5cf6' }}>
           Powered by Bitcoin
         </span>
       </div>
@@ -83,10 +83,10 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
           onClick={() => setShowInfo(!showInfo)}
           style={{
             padding: '8px 16px',
-            background: 'rgba(255, 107, 0, 0.2)',
-            border: '1px solid rgba(255, 107, 0, 0.3)',
+            background: 'rgba(139, 92, 246, 0.2)',
+            border: '1px solid rgba(139, 92, 246, 0.3)',
             borderRadius: '8px',
-            color: '#ff6b00',
+            color: '#8b5cf6',
             cursor: 'pointer',
             fontSize: '14px',
             display: 'flex',
@@ -109,18 +109,18 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
             marginTop: '8px',
             width: '300px',
             background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-            border: '1px solid rgba(255, 107, 0, 0.3)',
+            border: '1px solid rgba(139, 92, 246, 0.3)',
             borderRadius: '12px',
             padding: '20px',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
             zIndex: 1000,
           }}
         >
-          <h3 style={{ color: '#ff6b00', marginBottom: '12px' }}>About Bitcoin Art</h3>
+          <h3 style={{ color: '#8b5cf6', marginBottom: '12px' }}>About Bitcoin Art</h3>
           <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '16px' }}>
             The premier platform for creating, collecting, and trading digital art NFTs on the Bitcoin blockchain.
           </p>
-          <div style={{ borderTop: '1px solid rgba(255, 107, 0, 0.2)', paddingTop: '16px' }}>
+          <div style={{ borderTop: '1px solid rgba(139, 92, 246, 0.2)', paddingTop: '16px' }}>
             <p style={{ fontSize: '12px', color: '#888', marginBottom: '8px' }}>
               <strong>$bArt Token:</strong> Native platform token
             </p>

@@ -119,13 +119,13 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            background: 'rgba(255, 107, 0, 0.1)',
+            background: 'rgba(139, 92, 246, 0.1)',
             borderRadius: '8px',
             padding: '8px 12px',
-            border: '1px solid rgba(255, 107, 0, 0.2)',
+            border: '1px solid rgba(139, 92, 246, 0.2)',
           }}
         >
-          <Search size={16} style={{ color: '#ff6b00', marginRight: '8px' }} />
+          <Search size={16} style={{ color: '#8b5cf6', marginRight: '8px' }} />
           <input
             type="text"
             placeholder="Search artworks..."
@@ -158,16 +158,16 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '10px 12px',
-                background: currentView === item.view ? 'rgba(255, 107, 0, 0.2)' : 'transparent',
+                background: currentView === item.view ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                 border: 'none',
                 borderRadius: '8px',
-                color: currentView === item.view ? '#ff6b00' : '#ccc',
+                color: currentView === item.view ? '#8b5cf6' : '#ccc',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
                 if (currentView !== item.view) {
-                  e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
+                  e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
                 }
               }}
               onMouseLeave={(e) => {
@@ -207,8 +207,8 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
                       transition: 'all 0.2s',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = '#ff6b00';
-                      e.currentTarget.style.background = 'rgba(255, 107, 0, 0.05)';
+                      e.currentTarget.style.color = '#8b5cf6';
+                      e.currentTarget.style.background = 'rgba(139, 92, 246, 0.05)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.color = '#999';
@@ -226,12 +226,12 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
       </div>
 
       {/* Bottom Section */}
-      <div style={{ padding: '16px', borderTop: '1px solid rgba(255, 107, 0, 0.2)' }}>
+      <div style={{ padding: '16px', borderTop: '1px solid rgba(139, 92, 246, 0.2)' }}>
         {/* Storage Info */}
         <div style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <HardDrive size={14} style={{ color: '#ff6b00' }} />
+              <HardDrive size={14} style={{ color: '#8b5cf6' }} />
               <span style={{ fontSize: '12px', color: '#999' }}>Storage</span>
             </div>
             <span style={{ fontSize: '12px', color: '#999' }}>
@@ -241,7 +241,7 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
           <div
             style={{
               height: '4px',
-              background: 'rgba(255, 107, 0, 0.1)',
+              background: 'rgba(139, 92, 246, 0.1)',
               borderRadius: '2px',
               overflow: 'hidden',
             }}
@@ -250,7 +250,7 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
               style={{
                 height: '100%',
                 width: `${(storageUsed / storageTotal) * 100}%`,
-                background: 'linear-gradient(90deg, #ff6b00, #ff8c42)',
+                background: 'linear-gradient(90deg, #8b5cf6, #c084fc)',
                 transition: 'width 0.3s',
               }}
             />
@@ -264,10 +264,10 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
             style={{
               flex: 1,
               padding: '8px',
-              background: 'rgba(255, 107, 0, 0.1)',
-              border: '1px solid rgba(255, 107, 0, 0.2)',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.2)',
               borderRadius: '8px',
-              color: '#ff6b00',
+              color: '#8b5cf6',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -282,10 +282,10 @@ export default function ArtSidebar({ currentView, onViewChange, onAuthRequired }
           <button
             style={{
               padding: '8px',
-              background: 'rgba(255, 107, 0, 0.1)',
-              border: '1px solid rgba(255, 107, 0, 0.2)',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.2)',
               borderRadius: '8px',
-              color: '#ff6b00',
+              color: '#8b5cf6',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
