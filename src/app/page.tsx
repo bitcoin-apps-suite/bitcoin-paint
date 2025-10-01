@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import ProofOfConceptBar from '@/components/ProofOfConceptBar';
 import TopMenuBar from '@/components/TopMenuBar';
 import DevSidebar from '@/components/DevSidebar';
@@ -76,7 +77,8 @@ export default function HomePage() {
   };
 
   return (
-    <div
+    <ErrorBoundary>
+      <div
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -361,6 +363,7 @@ export default function HomePage() {
 
       {/* Floating Dock at the bottom */}
       <Dock />
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }
