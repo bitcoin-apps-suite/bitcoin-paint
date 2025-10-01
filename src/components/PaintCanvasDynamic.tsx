@@ -9,7 +9,11 @@ interface PaintCanvasProps {
 }
 
 const PaintCanvas: ComponentType<PaintCanvasProps> = dynamic(
-  () => import('./AdvancedPaintCanvas'),
+  () => import('./AdvancedPaintCanvas').catch(() => {
+    // If Konva fails, use HTML5 Canvas fallback
+    console.log('Konva failed to load, using HTML5 Canvas fallback');
+    return import('./FallbackCanvas');
+  }),
   { 
     ssr: false,
     loading: () => (
