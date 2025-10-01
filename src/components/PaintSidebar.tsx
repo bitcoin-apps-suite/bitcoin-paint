@@ -68,6 +68,65 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
+  const handleMenuAction = (action: string) => {
+    switch (action) {
+      case 'new':
+        // Create new painting
+        window.dispatchEvent(new CustomEvent('newPainting'));
+        break;
+      case 'recent':
+        // Show recent projects
+        alert('Recent projects feature coming soon!');
+        break;
+      case 'templates':
+        // Show templates
+        alert('Templates feature coming soon!');
+        break;
+      case 'ai':
+        // AI tools
+        alert('AI tools feature coming soon!');
+        break;
+      case 'browse':
+        // Browse marketplace
+        onViewChange('marketplace');
+        break;
+      case 'trending':
+        // Show trending
+        alert('Trending feature coming soon!');
+        break;
+      case 'collection':
+        // Show collection
+        alert('Collection feature coming soon!');
+        break;
+      case 'created':
+        // Show created paintings
+        alert('Created paintings feature coming soon!');
+        break;
+      case 'favorites':
+        // Show favorites
+        alert('Favorites feature coming soon!');
+        break;
+      case 'upload':
+        // Upload painting
+        alert('Upload feature coming soon!');
+        break;
+      case 'token':
+        // Show token info
+        onViewChange('exchange');
+        break;
+      case 'history':
+        // Show trade history
+        alert('Trade history feature coming soon!');
+        break;
+      case 'analytics':
+        // Show analytics
+        alert('Analytics feature coming soon!');
+        break;
+      default:
+        console.log('Unknown action:', action);
+    }
+  };
+
   const menuItems = [
     {
       id: 'studio',
@@ -401,6 +460,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
                 {item.children.map((child, index) => (
                   <button
                     key={index}
+                    onClick={() => handleMenuAction(child.action)}
                     style={{
                       width: '100%',
                       display: 'flex',

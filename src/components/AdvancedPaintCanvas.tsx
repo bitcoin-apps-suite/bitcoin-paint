@@ -310,6 +310,24 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     }
   }, []);
 
+  // Listen for new painting events
+  useEffect(() => {
+    const handleNewPainting = () => {
+      // Clear the canvas and reset to default state
+      setLayers([{ id: '1', name: 'Layer 1', visible: true, opacity: 1, elements: [] }]);
+      setActiveLayerId('1');
+      setHistory([]);
+      setHistoryStep(0);
+      setSelectedElementId(null);
+      setZoom(1);
+      setPan({ x: 0, y: 0 });
+      setTool('brush');
+    };
+
+    window.addEventListener('newPainting', handleNewPainting);
+    return () => window.removeEventListener('newPainting', handleNewPainting);
+  }, []);
+
   return (
     <div className="flex flex-col bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
       {/* Top Toolbar */}
