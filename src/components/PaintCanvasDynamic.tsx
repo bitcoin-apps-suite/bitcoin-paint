@@ -9,7 +9,7 @@ interface PaintCanvasProps {
 }
 
 const PaintCanvas: ComponentType<PaintCanvasProps> = dynamic(
-  () => import('./PaintCanvas').catch(() => {
+  () => import('./AdvancedPaintCanvas').catch(() => {
     // Return a fallback component if the import fails
     return {
       default: () => (
