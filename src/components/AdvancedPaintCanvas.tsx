@@ -2,6 +2,8 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Stage, Layer, Line, Circle, Rect, Star, Arrow, Text } from 'react-konva';
+import tinycolor from 'tinycolor2';
+import { saveAs } from 'file-saver';
 import { 
   Brush,
   Circle as CircleIcon,
@@ -80,6 +82,9 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
   const [showLayerPanel, setShowLayerPanel] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [brushOpacity, setBrushOpacity] = useState(1);
+  const [brushMode, setBrushMode] = useState<'normal' | 'multiply' | 'screen' | 'overlay'>('normal');
   
   const stageRef = useRef<any>(null);
   const currentPath = useRef<string>('');
@@ -160,10 +165,11 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     
     if (tool === 'brush' || tool === 'eraser') {
       currentPath.current = '';
+      const brushColor = tool === 'eraser' ? '#ffffff' : tinycolor(color).setAlpha(brushOpacity).toRgbString();
       addElementToLayer({
         type: 'line',
         points: [pos.x, pos.y],
-        color: tool === 'eraser' ? '#ffffff' : color,
+        color: brushColor,
         strokeWidth: tool === 'eraser' ? strokeWidth * 2 : strokeWidth
       });
     } else if (tool === 'text') {
@@ -248,19 +254,39 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     saveToHistory();
   };
 
-  const downloadCanvas = () => {
+  const downloadCanvas = (format: 'png' | 'jpg' | 'json' = 'png') => {
     if (stageRef.current) {
-      const uri = stageRef.current.toDataURL({
-        mimeType: 'image/png',
-        quality: 1,
-        pixelRatio: 2
-      });
-      const link = document.createElement('a');
-      link.download = `bitcoin-painting-${Date.now()}.png`;
-      link.href = uri;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const timestamp = Date.now();
+      
+      if (format === 'json') {
+        // Export as JSON for later editing
+        const canvasData = {
+          layers,
+          metadata: {
+            created: new Date().toISOString(),
+            version: '1.0.0',
+            app: 'Bitcoin Paint'
+          }
+        };
+        const blob = new Blob([JSON.stringify(canvasData, null, 2)], {
+          type: 'application/json'
+        });
+        saveAs(blob, `bitcoin-painting-${timestamp}.json`);
+      } else {
+        // Export as image
+        const uri = stageRef.current.toDataURL({
+          mimeType: format === 'jpg' ? 'image/jpeg' : 'image/png',
+          quality: 1,
+          pixelRatio: 2
+        });
+        
+        // Convert to blob and download
+        fetch(uri)
+          .then(res => res.blob())
+          .then(blob => {
+            saveAs(blob, `bitcoin-painting-${timestamp}.${format}`);
+          });
+      }
     }
   };
 
@@ -268,14 +294,7 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     if (stageRef.current) {
       const svg = stageRef.current.toSVG();
       const blob = new Blob([svg], { type: 'image/svg+xml' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.download = `bitcoin-painting-${Date.now()}.svg`;
-      link.href = url;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      saveAs(blob, `bitcoin-painting-${Date.now()}.svg`);
     }
   };
 
@@ -330,6 +349,34 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
             />
             <span className="text-sm text-gray-300 w-8">{strokeWidth}</span>
           </div>
+          
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-300">Opacity:</span>
+            <input
+              type="range"
+              min="0.1"
+              max="1"
+              step="0.1"
+              value={brushOpacity}
+              onChange={(e) => setBrushOpacity(Number(e.target.value))}
+              className="w-20"
+            />
+            <span className="text-sm text-gray-300 w-8">{Math.round(brushOpacity * 100)}%</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-300">Mode:</span>
+            <select
+              value={brushMode}
+              onChange={(e) => setBrushMode(e.target.value as 'normal' | 'multiply' | 'screen' | 'overlay')}
+              className="bg-gray-700 text-white text-sm border border-gray-600 rounded px-2 py-1"
+            >
+              <option value="normal">Normal</option>
+              <option value="multiply">Multiply</option>
+              <option value="screen">Screen</option>
+              <option value="overlay">Overlay</option>
+            </select>
+          </div>
         </div>
 
         {/* Action Buttons */}
@@ -366,13 +413,38 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
           >
             <RotateCcw size={18} />
           </button>
-          <button
-            onClick={downloadCanvas}
-            className="p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-            title="Download PNG"
-          >
-            <Download size={18} />
-          </button>
+          <div className="relative group">
+            <button className="p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
+              <Download size={18} />
+              <span className="text-xs">▼</span>
+            </button>
+            <div className="absolute bottom-full mb-2 left-0 bg-gray-800 border border-gray-600 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10">
+              <button
+                onClick={() => downloadCanvas('png')}
+                className="block w-full px-4 py-2 text-left text-white hover:bg-gray-700 rounded-t-lg"
+              >
+                PNG Image
+              </button>
+              <button
+                onClick={() => downloadCanvas('jpg')}
+                className="block w-full px-4 py-2 text-left text-white hover:bg-gray-700"
+              >
+                JPG Image
+              </button>
+              <button
+                onClick={() => downloadCanvas('json')}
+                className="block w-full px-4 py-2 text-left text-white hover:bg-gray-700"
+              >
+                Project File
+              </button>
+              <button
+                onClick={exportAsSVG}
+                className="block w-full px-4 py-2 text-left text-white hover:bg-gray-700 rounded-b-lg"
+              >
+                SVG Vector
+              </button>
+            </div>
+          </div>
           <button
             onClick={saveToSatoshis}
             className="px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
@@ -407,6 +479,25 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
             className="w-8 h-8 rounded cursor-pointer"
             title="Custom Color"
           />
+          <button
+            onClick={() => {
+              const baseColor = tinycolor(color);
+              const harmonies = [
+                baseColor.toHexString(),
+                baseColor.complement().toHexString(),
+                baseColor.triad()[1].toHexString(),
+                baseColor.triad()[2].toHexString(),
+                baseColor.analogous()[1].toHexString(),
+                baseColor.analogous()[2].toHexString(),
+              ];
+              // Update the colors array with harmonious colors
+              setColor(harmonies[0]);
+            }}
+            className="px-2 py-1 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded transition-colors"
+            title="Generate Color Harmony"
+          >
+            ✨
+          </button>
         </div>
         
         <div className="flex items-center gap-2">
@@ -468,7 +559,65 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
         )}
 
         {/* Canvas */}
-        <div className="flex-1 bg-white relative overflow-hidden">
+        <div 
+          className={`flex-1 bg-white relative overflow-hidden ${isDragOver ? 'ring-4 ring-purple-300 ring-opacity-50' : ''}`}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragOver(false);
+            try {
+              const data = JSON.parse(e.dataTransfer.getData('application/json'));
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              
+              if (data.type === 'tool') {
+                setTool(data.tool);
+              } else if (data.type === 'color') {
+                setColor(data.color);
+              } else if (data.type === 'shape') {
+                // Add shape directly to canvas at drop position
+                const element = {
+                  type: data.shape as 'circle' | 'rect' | 'star' | 'arrow',
+                  x: x,
+                  y: y,
+                  color: color,
+                  strokeWidth: strokeWidth,
+                  fill: fillColor
+                };
+
+                if (data.shape === 'circle') {
+                  addElementToLayer({ ...element, radius: 50 });
+                } else if (data.shape === 'rect') {
+                  addElementToLayer({ ...element, width: 100, height: 60 });
+                } else if (data.shape === 'star') {
+                  addElementToLayer({ ...element, x: x, y: y });
+                } else if (data.shape === 'arrow') {
+                  addElementToLayer({ 
+                    ...element,
+                    type: 'arrow',
+                    points: [x, y, x + 100, y]
+                  });
+                }
+                saveToHistory();
+              }
+            } catch (error) {
+              console.error('Error handling drop:', error);
+            }
+          }}
+          onDragOver={(e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+            setIsDragOver(true);
+          }}
+          onDragEnter={(e) => {
+            e.preventDefault();
+            setIsDragOver(true);
+          }}
+          onDragLeave={(e) => {
+            e.preventDefault();
+            setIsDragOver(false);
+          }}
+        >
           <Stage
             width={canvasWidth}
             height={canvasHeight}
