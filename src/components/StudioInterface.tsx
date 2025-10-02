@@ -25,7 +25,7 @@ import PaintCanvas from './PaintCanvasDynamic';
 export default function StudioInterface() {
   const [selectedTool, setSelectedTool] = useState('brush');
   const [brushSize, setBrushSize] = useState(5);
-  const [selectedColor, setSelectedColor] = useState('#8b5cf6');
+  const [selectedColor, setSelectedColor] = useState('#DC2626');
   const [layers, setLayers] = useState([{ id: 1, name: 'Layer 1', visible: true, opacity: 100 }]);
 
   const tools = [
@@ -38,8 +38,8 @@ export default function StudioInterface() {
   ];
 
   const colors = [
-    '#8b5cf6', '#c084fc', '#e5e7eb', '#ff4500',
-    '#dc143c', '#8b008b', '#4b0082', '#0000ff',
+    '#DC2626', '#B91C1C', '#991B1B', '#ff4500',
+    '#dc143c', '#EF4444', '#F87171', '#0000ff',
     '#00ced1', '#00ff00', '#ffff00', '#ffffff',
     '#808080', '#000000',
   ];
@@ -51,7 +51,7 @@ export default function StudioInterface() {
         style={{
           height: '60px',
           background: 'linear-gradient(180deg, #1a1a1a 0%, #141414 100%)',
-          borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
+          borderBottom: '1px solid rgba(220, 38, 38, 0.2)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -63,10 +63,10 @@ export default function StudioInterface() {
           <button
             style={{
               padding: '8px',
-              background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
+              background: 'rgba(220, 38, 38, 0.1)',
+              border: '1px solid rgba(220, 38, 38, 0.3)',
               borderRadius: '8px',
-              color: '#8b5cf6',
+              color: '#DC2626',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -78,10 +78,10 @@ export default function StudioInterface() {
           <button
             style={{
               padding: '8px',
-              background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
+              background: 'rgba(220, 38, 38, 0.1)',
+              border: '1px solid rgba(220, 38, 38, 0.3)',
               borderRadius: '8px',
-              color: '#8b5cf6',
+              color: '#DC2626',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -94,7 +94,7 @@ export default function StudioInterface() {
 
         {/* Center Title */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Palette size={20} color="#8b5cf6" />
+          <Palette size={20} color="#DC2626" />
           <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: 'white', margin: 0 }}>
             Paint Studio - Untitled Painting
           </h2>
@@ -105,7 +105,7 @@ export default function StudioInterface() {
           <button
             style={{
               padding: '8px 16px',
-              background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
+              background: 'linear-gradient(135deg, #DC2626, #B91C1C)',
               border: 'none',
               borderRadius: '8px',
               color: 'white',
@@ -122,10 +122,10 @@ export default function StudioInterface() {
           <button
             style={{
               padding: '8px 16px',
-              background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
+              background: 'rgba(220, 38, 38, 0.1)',
+              border: '1px solid rgba(220, 38, 38, 0.3)',
               borderRadius: '8px',
-              color: '#8b5cf6',
+              color: '#DC2626',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -138,10 +138,10 @@ export default function StudioInterface() {
           <button
             style={{
               padding: '8px 16px',
-              background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
+              background: 'rgba(220, 38, 38, 0.1)',
+              border: '1px solid rgba(220, 38, 38, 0.3)',
               borderRadius: '8px',
-              color: '#8b5cf6',
+              color: '#DC2626',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -161,7 +161,7 @@ export default function StudioInterface() {
           style={{
             width: '80px',
             background: '#141414',
-            borderRight: '1px solid rgba(139, 92, 246, 0.2)',
+            borderRight: '1px solid rgba(220, 38, 38, 0.2)',
             padding: '16px 8px',
             display: 'flex',
             flexDirection: 'column',
@@ -175,10 +175,10 @@ export default function StudioInterface() {
               style={{
                 width: '64px',
                 height: '64px',
-                background: selectedTool === tool.id ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
-                border: selectedTool === tool.id ? '2px solid #8b5cf6' : '2px solid transparent',
+                background: selectedTool === tool.id ? 'rgba(220, 38, 38, 0.2)' : 'transparent',
+                border: selectedTool === tool.id ? '2px solid #DC2626' : '2px solid transparent',
                 borderRadius: '8px',
-                color: selectedTool === tool.id ? '#8b5cf6' : '#999',
+                color: selectedTool === tool.id ? '#DC2626' : '#999',
                 cursor: 'pointer',
                 display: 'flex',
                 flexDirection: 'column',
@@ -216,14 +216,14 @@ export default function StudioInterface() {
           style={{
             width: '120px',
             background: '#141414',
-            borderLeft: '1px solid rgba(139, 92, 246, 0.2)',
+            borderLeft: '1px solid rgba(220, 38, 38, 0.2)',
             padding: '16px',
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
           }}
         >
-          <h3 style={{ fontSize: '14px', color: '#8b5cf6', margin: 0, textAlign: 'center' }}>
+          <h3 style={{ fontSize: '14px', color: '#DC2626', margin: 0, textAlign: 'center' }}>
             Colors
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
@@ -244,8 +244,8 @@ export default function StudioInterface() {
             ))}
           </div>
           
-          <div style={{ borderTop: '1px solid rgba(139, 92, 246, 0.2)', paddingTop: '16px' }}>
-            <h4 style={{ fontSize: '12px', color: '#8b5cf6', margin: '0 0 8px 0', textAlign: 'center' }}>
+          <div style={{ borderTop: '1px solid rgba(220, 38, 38, 0.2)', paddingTop: '16px' }}>
+            <h4 style={{ fontSize: '12px', color: '#DC2626', margin: '0 0 8px 0', textAlign: 'center' }}>
               Size
             </h4>
             <input

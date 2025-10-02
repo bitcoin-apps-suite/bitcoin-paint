@@ -12,6 +12,7 @@ import MarketplaceView from '@/components/MarketplaceView';
 import GalleryView from '@/components/GalleryView';
 import PaintExchangeView from '@/components/PaintExchangeView';
 import AppHeader from '@/components/AppHeader';
+import PaintHeader from '@/components/PaintHeader';
 import AuthModal from '@/components/AuthModal';
 
 type ViewMode = 'studio' | 'marketplace' | 'gallery' | 'exchange';
@@ -104,7 +105,7 @@ export default function HomePage() {
       <DevSidebar />
 
       {/* Header */}
-      <AppHeader onTitleClick={() => setCurrentView('studio')} />
+      <PaintHeader onTitleClick={() => setCurrentView('studio')} />
 
       {/* Main Content Area - adjusted for DevSidebar */}
       <div

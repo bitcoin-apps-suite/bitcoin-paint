@@ -27,9 +27,9 @@
 .bitcoin-symbol {
   font-size: 16px;
   font-weight: 600;
-  color: #8b5cf6;
+  color: #DC2626;
   opacity: 0.95;
-  text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
   transition: all 0.2s ease;
   animation: colorCycle 15s ease infinite;
 }
@@ -47,11 +47,11 @@
 }
 
 @keyframes colorCycle {
-  0% { color: #8b5cf6; }
+  0% { color: #DC2626; }
   25% { color: #c084fc; }
   50% { color: #e5e7eb; }
   75% { color: #c084fc; }
-  100% { color: #8b5cf6; }
+  100% { color: #DC2626; }
 }
 
 .taskbar-menus {
@@ -84,12 +84,12 @@
 }
 
 .menu-button:hover {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(220, 38, 38, 0.1);
 }
 
 .menu-button.active {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(192, 132, 252, 0.3));
-  color: #8b5cf6;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(192, 132, 252, 0.3));
+  color: #DC2626;
 }
 
 /* Dropdown Menu */
@@ -101,7 +101,7 @@
   background: rgba(30, 30, 30, 0.98);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 0.5px solid rgba(139, 92, 246, 0.3);
+  border: 0.5px solid rgba(220, 38, 38, 0.3);
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   padding: 4px 0;
@@ -127,8 +127,8 @@
 }
 
 .menu-item:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(192, 132, 252, 0.3));
-  color: #8b5cf6;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(192, 132, 252, 0.3));
+  color: #DC2626;
 }
 
 .menu-item-content {
@@ -161,7 +161,7 @@
 
 .menu-divider {
   height: 1px;
-  background: rgba(139, 92, 246, 0.2);
+  background: rgba(220, 38, 38, 0.2);
   margin: 2px 0;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .taskbar-link:hover {
-  color: #8b5cf6;
+  color: #DC2626;
 }
 
 .taskbar-link-icon {

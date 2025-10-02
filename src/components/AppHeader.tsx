@@ -37,7 +37,7 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
           style={{
             width: '36px',
             height: '36px',
-            background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
+            background: 'linear-gradient(135deg, #DC2626, #c084fc)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
@@ -71,8 +71,8 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
           border: '1px solid rgba(139, 92, 246, 0.3)',
         }}
       >
-        <Bitcoin size={16} color="#8b5cf6" />
-        <span style={{ fontSize: '14px', color: '#8b5cf6' }}>
+        <Bitcoin size={16} color="#DC2626" />
+        <span style={{ fontSize: '14px', color: '#DC2626' }}>
           Powered by Bitcoin
         </span>
       </div>
@@ -86,7 +86,7 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
             background: 'rgba(139, 92, 246, 0.2)',
             border: '1px solid rgba(139, 92, 246, 0.3)',
             borderRadius: '8px',
-            color: '#8b5cf6',
+            color: '#DC2626',
             cursor: 'pointer',
             fontSize: '14px',
             display: 'flex',
@@ -116,7 +116,7 @@ export default function AppHeader({ onTitleClick }: AppHeaderProps) {
             zIndex: 1000,
           }}
         >
-          <h3 style={{ color: '#8b5cf6', marginBottom: '12px' }}>About Bitcoin Paint</h3>
+          <h3 style={{ color: '#DC2626', marginBottom: '12px' }}>About Bitcoin Paint</h3>
           <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '16px' }}>
             The premier platform for creating, collecting, and trading digital art NFTs on the Bitcoin blockchain.
           </p>

@@ -192,7 +192,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
             border: '1px solid rgba(139, 92, 246, 0.2)',
           }}
         >
-          <Search size={16} style={{ color: '#8b5cf6', marginRight: '8px' }} />
+          <Search size={16} style={{ color: '#DC2626', marginRight: '8px' }} />
           <input
             type="text"
             placeholder="Search paintings..."
@@ -229,7 +229,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
                 background: currentView === item.view ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                 border: 'none',
                 borderRadius: '8px',
-                color: currentView === item.view ? '#8b5cf6' : '#ccc',
+                color: currentView === item.view ? '#DC2626' : '#ccc',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
               }}
@@ -276,7 +276,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
                       transition: 'all 0.2s',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = '#8b5cf6';
+                      e.currentTarget.style.color = '#DC2626';
                       e.currentTarget.style.background = 'rgba(139, 92, 246, 0.05)';
                     }}
                     onMouseLeave={(e) => {
@@ -300,7 +300,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
         <div style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <HardDrive size={14} style={{ color: '#8b5cf6' }} />
+              <HardDrive size={14} style={{ color: '#DC2626' }} />
               <span style={{ fontSize: '12px', color: '#999' }}>Storage</span>
             </div>
             <span style={{ fontSize: '12px', color: '#999' }}>
@@ -319,7 +319,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
               style={{
                 height: '100%',
                 width: `${(storageUsed / storageTotal) * 100}%`,
-                background: 'linear-gradient(90deg, #8b5cf6, #c084fc)',
+                background: 'linear-gradient(90deg, #DC2626, #c084fc)',
                 transition: 'width 0.3s',
               }}
             />
@@ -336,7 +336,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
               background: 'rgba(139, 92, 246, 0.1)',
               border: '1px solid rgba(139, 92, 246, 0.2)',
               borderRadius: '8px',
-              color: '#8b5cf6',
+              color: '#DC2626',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -354,7 +354,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
               background: 'rgba(139, 92, 246, 0.1)',
               border: '1px solid rgba(139, 92, 246, 0.2)',
               borderRadius: '8px',
-              color: '#8b5cf6',
+              color: '#DC2626',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
