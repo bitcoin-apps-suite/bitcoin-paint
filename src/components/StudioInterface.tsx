@@ -156,7 +156,7 @@ export default function StudioInterface() {
 
       {/* Main Content */}
       <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
-        {/* Left Toolbox */}
+        {/* Left Tools Panel */}
         <div
           style={{
             width: '80px',
@@ -209,160 +209,59 @@ export default function StudioInterface() {
             canvasWidth={800} 
             canvasHeight={600} 
           />
-
-          {/* Zoom Controls */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '20px',
-              right: '20px',
-              display: 'flex',
-              gap: '8px',
-              background: 'rgba(0, 0, 0, 0.8)',
-              padding: '8px',
-              borderRadius: '8px',
-            }}
-          >
-            <button
-              style={{
-                padding: '8px',
-                background: 'rgba(139, 92, 246, 0.2)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
-                borderRadius: '4px',
-                color: '#8b5cf6',
-                cursor: 'pointer',
-              }}
-            >
-              -
-            </button>
-            <span style={{ padding: '8px', color: '#999' }}>100%</span>
-            <button
-              style={{
-                padding: '8px',
-                background: 'rgba(139, 92, 246, 0.2)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
-                borderRadius: '4px',
-                color: '#8b5cf6',
-                cursor: 'pointer',
-              }}
-            >
-              +
-            </button>
-          </div>
         </div>
 
-        {/* Right Panel */}
+        {/* Right Colors Panel */}
         <div
           style={{
-            width: '280px',
+            width: '120px',
             background: '#141414',
             borderLeft: '1px solid rgba(139, 92, 246, 0.2)',
             padding: '16px',
-            overflowY: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
           }}
         >
-          {/* Color Palette */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ fontSize: '14px', color: '#8b5cf6', marginBottom: '12px' }}>
-              Colors
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '8px' }}>
-              {colors.map((color) => (
-                <button
-                  key={color}
-                  onClick={() => setSelectedColor(color)}
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    background: color,
-                    border: selectedColor === color ? '2px solid #fff' : '2px solid transparent',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Brush Settings */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ fontSize: '14px', color: '#8b5cf6', marginBottom: '12px' }}>
-              Brush Settings
-            </h3>
-            <div style={{ marginBottom: '12px' }}>
-              <label style={{ fontSize: '12px', color: '#999', display: 'block', marginBottom: '4px' }}>
-                Size: {brushSize}px
-              </label>
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value={brushSize}
-                onChange={(e) => setBrushSize(Number(e.target.value))}
-                style={{ width: '100%' }}
-              />
-            </div>
-            <div>
-              <label style={{ fontSize: '12px', color: '#999', display: 'block', marginBottom: '4px' }}>
-                Opacity: 100%
-              </label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                defaultValue="100"
-                style={{ width: '100%' }}
-              />
-            </div>
-          </div>
-
-          {/* Layers */}
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <h3 style={{ fontSize: '14px', color: '#8b5cf6', margin: 0 }}>
-                Layers
-              </h3>
+          <h3 style={{ fontSize: '14px', color: '#8b5cf6', margin: 0, textAlign: 'center' }}>
+            Colors
+          </h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
+            {colors.map((color) => (
               <button
+                key={color}
+                onClick={() => setSelectedColor(color)}
                 style={{
-                  padding: '4px 8px',
-                  background: 'rgba(139, 92, 246, 0.2)',
-                  border: '1px solid rgba(139, 92, 246, 0.3)',
+                  width: '24px',
+                  height: '24px',
+                  background: color,
+                  border: selectedColor === color ? '2px solid #fff' : '2px solid transparent',
                   borderRadius: '4px',
-                  color: '#8b5cf6',
                   cursor: 'pointer',
-                  fontSize: '12px',
+                  transition: 'all 0.2s',
                 }}
-              >
-                + Add
-              </button>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {layers.map((layer) => (
-                <div
-                  key={layer.id}
-                  style={{
-                    padding: '12px',
-                    background: 'rgba(139, 92, 246, 0.1)',
-                    borderRadius: '8px',
-                    border: '1px solid rgba(139, 92, 246, 0.2)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
-                >
-                  <Layers size={16} color="#8b5cf6" />
-                  <span style={{ flex: 1, fontSize: '13px', color: '#ccc' }}>{layer.name}</span>
-                  <input
-                    type="checkbox"
-                    checked={layer.visible}
-                    onChange={() => {}}
-                    style={{ cursor: 'pointer' }}
-                  />
-                </div>
-              ))}
+              />
+            ))}
+          </div>
+          
+          <div style={{ borderTop: '1px solid rgba(139, 92, 246, 0.2)', paddingTop: '16px' }}>
+            <h4 style={{ fontSize: '12px', color: '#8b5cf6', margin: '0 0 8px 0', textAlign: 'center' }}>
+              Size
+            </h4>
+            <input
+              type="range"
+              min="1"
+              max="50"
+              value={brushSize}
+              onChange={(e) => setBrushSize(Number(e.target.value))}
+              style={{ width: '100%' }}
+            />
+            <div style={{ fontSize: '10px', color: '#999', textAlign: 'center', marginTop: '4px' }}>
+              {brushSize}px
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
