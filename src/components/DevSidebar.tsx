@@ -52,7 +52,7 @@ export default function DevSidebar() {
   useEffect(() => {
     const fetchIssues = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/bitcoin-apps-suite/bitcoin-art/issues?state=open');
+        const response = await fetch('https://api.github.com/repos/bitcoin-apps-suite/bitcoin-paint/issues?state=open');
         const data = await response.json();
         setIssueCount(Array.isArray(data) ? data.length : 0);
       } catch (error) {
@@ -72,38 +72,45 @@ export default function DevSidebar() {
     section?: string;
     external?: boolean;
   }> = [
-    // Token & Core at top
-    { path: '/token', icon: Coins, label: '$bPaint Token', badge: 'NEW' },
-    { path: '/contracts', icon: Terminal, label: 'Smart Contracts', badge: 'BETA' },
-    { path: '/exchange', icon: Download, label: 'Token Exchange' },
+    // Token & Grants at top
+    { path: '/token', icon: Coins, label: '$BPAINT', badge: 'NEW' },
+    { path: '/grants', icon: Palette, label: 'ART GRANTS' },
+    { path: '/gallery', icon: FileText, label: 'GALLERY', badge: 'FEATURED' },
     
-    // System Operations
+    // Artists Section
     { divider: true },
-    { section: 'ART SYSTEM' },
-    { path: '/tasks', icon: ListTodo, label: 'Task Manager' },
-    { path: '/artists', icon: Users, label: 'Artists', badge: '42' },
-    { path: '/docs', icon: BookOpen, label: 'Documentation' },
+    { section: 'ARTISTS' },
+    { path: '/artist/commission', icon: Briefcase, label: 'Commission Work' },
+    { path: '/bitcoin-paint/exchange', icon: Download, label: 'Sell Artwork', badge: '24' },
+    { path: '/tutorials', icon: BookOpen, label: 'Painting Guides' },
     
-    // Development
+    // Collectors Section
     { divider: true },
-    { section: 'DEVELOPMENT' },
+    { section: 'COLLECTORS' },
+    { path: '/bitcoin-paint/exchange', icon: Coins, label: 'Buy NFT Art' },
+    { path: '/collections', icon: Package, label: 'Browse Collections', badge: '156' },
+    { path: '/auctions', icon: Clock, label: 'Live Auctions' },
+    
+    // Developers Section
+    { divider: true },
+    { section: 'DEVELOPERS' },
+    { path: '/developer/tools', icon: Terminal, label: 'Brush SDK' },
+    { path: '/contracts', icon: ListTodo, label: 'Find Work', badge: issueCount > 0 ? String(issueCount) : '0' },
+    { path: '/contributions', icon: Users, label: 'Contributors', badge: '3' },
+    
+    // System
+    { divider: true },
     { path: '/api', icon: Package, label: 'API Reference' },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-art', icon: Github, label: 'GitHub Repository', external: true },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-art/issues', icon: FileCode, label: 'Issues', badge: issueCount > 0 ? String(issueCount) : '0', external: true },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-art/pulls', icon: GitPullRequest, label: 'Pull Requests', external: true },
-    
-    // System Status
-    { divider: true },
+    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-paint', icon: Github, label: 'GitHub', external: true },
     { path: '/changelog', icon: History, label: 'Changelog' },
-    { path: '/status', icon: CheckCircle, label: 'System Status', badge: 'OK' }
+    { path: '/status', icon: Activity, label: 'Status', badge: 'OK' }
   ];
 
   const stats = {
-    totalSupply: '1,000,000,000',
-    distributed: '245,678,901',
-    artworks: '12,456',
-    openTasks: issueCount || 0,
-    networkNodes: '150+'
+    totalTokens: '1,000,000,000',
+    distributed: '0',
+    artists: '1',
+    openTasks: issueCount || 0
   };
 
   return (
@@ -112,7 +119,7 @@ export default function DevSidebar() {
         {!isCollapsed && (
           <div className="dev-sidebar-title">
             <Palette className="dev-sidebar-logo" />
-            <span>Art Developer Hub</span>
+            <span>Artists Hub</span>
           </div>
         )}
         <button 
@@ -184,26 +191,22 @@ export default function DevSidebar() {
       {/* Stats section */}
       {!isCollapsed && (
         <div className="dev-sidebar-stats">
-          <h4>bArt Stats</h4>
+          <h4>$BPAINT Stats</h4>
           <div className="dev-stat">
-            <span className="dev-stat-label">Total Supply</span>
-            <span className="dev-stat-value">{stats.totalSupply}</span>
+            <span className="dev-stat-label">Total Tokens</span>
+            <span className="dev-stat-value">{stats.totalTokens}</span>
           </div>
           <div className="dev-stat">
             <span className="dev-stat-label">Distributed</span>
             <span className="dev-stat-value">{stats.distributed}</span>
           </div>
           <div className="dev-stat">
-            <span className="dev-stat-label">Artworks</span>
-            <span className="dev-stat-value">{stats.artworks}</span>
+            <span className="dev-stat-label">Artists</span>
+            <span className="dev-stat-value">{stats.artists}</span>
           </div>
           <div className="dev-stat">
             <span className="dev-stat-label">Open Tasks</span>
             <span className="dev-stat-value">{stats.openTasks}</span>
-          </div>
-          <div className="dev-stat">
-            <span className="dev-stat-label">Network Nodes</span>
-            <span className="dev-stat-value">{stats.networkNodes}</span>
           </div>
         </div>
       )}
@@ -212,9 +215,9 @@ export default function DevSidebar() {
       {!isCollapsed && (
         <div className="dev-sidebar-footer">
           <div className="dev-sidebar-cta">
-            <p>Join Art Development</p>
+            <p>Join Paint Development</p>
             <a 
-              href="https://github.com/bitcoin-apps-suite/bitcoin-art" 
+              href="https://github.com/bitcoin-apps-suite/bitcoin-paint" 
               target="_blank" 
               rel="noopener noreferrer"
               className="dev-sidebar-cta-button"
