@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
+import '../mobile/mobile-bwallet.css';
+import MobileShellInit from '../mobile/MobileShellInit';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -50,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <MobileShellInit />
         <Providers>{children}</Providers>
       </body>
     </html>
