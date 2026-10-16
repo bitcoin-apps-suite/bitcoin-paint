@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { Palette, Bitcoin } from 'lucide-react';
+import { Palette } from 'lucide-react';
 
 interface PaintHeaderProps {
   onTitleClick?: () => void;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useSyncExternalStore } from 'react';
-import { Wallet, Mail, Music, FileText, HardDrive, Calendar, Search, Table, Share2, Briefcase, Store, Wifi, Volume2, Battery, Clock, TrendingUp, Building2, Shield, Palette, GraduationCap, Paintbrush, Video } from 'lucide-react';
+import { Wallet, Mail, Music, FileText, HardDrive, Calendar, Search, Table, Share2, Briefcase, Store, Wifi, Volume2, Battery, Clock, TrendingUp, Palette, GraduationCap, Paintbrush, Video } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import './Dock.css';
 

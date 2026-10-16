@@ -1,25 +1,10 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
-import { Stage, Layer, Line, Circle, Rect } from 'react-konva';
+import React, { useRef, useState } from 'react';
+import { Stage, Layer, Line } from 'react-konva';
 import type Konva from 'konva';
 import type { KonvaEventObject } from 'konva/lib/Node';
-import { 
-  Brush,
-  Circle as CircleIcon,
-  Square,
-  Minus,
-  Download,
-  Upload,
-  RotateCcw,
-  Palette,
-  Eraser
-} from 'lucide-react';
-
-interface Point {
-  x: number;
-  y: number;
-}
+import { Brush, Circle as CircleIcon, Square, Minus, Download, RotateCcw, Palette, Eraser } from 'lucide-react';
 
 interface DrawingLine {
   tool: string;

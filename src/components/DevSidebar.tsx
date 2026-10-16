@@ -2,32 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { 
-  ChevronLeft,
-  ChevronRight,
-  Monitor,
-  FileCode,
-  Users,
-  FileText,
-  Coins,
-  Github,
-  GitPullRequest,
-  ExternalLink,
-  BookOpen,
-  History,
-  CheckCircle,
-  ListTodo,
-  Briefcase,
-  Terminal,
-  Package,
-  Download,
-  Upload,
-  Lock,
-  Unlock,
-  Activity,
-  Clock,
-  Palette
-} from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, FileText, Coins, Github, BookOpen, History, ListTodo, Briefcase, Terminal, Package, Download, Activity, Clock, Palette } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import '../styles/DevSidebar.css';
 

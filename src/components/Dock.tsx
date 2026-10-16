@@ -1,28 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useSyncExternalStore } from 'react';
-import {
-  Palette,
-  Store,
-  Image,
-  TrendingUp,
-  Wallet,
-  Mail,
-  Music,
-  FileText,
-  HardDrive,
-  Calendar,
-  Search,
-  Table,
-  Share2,
-  Briefcase,
-  Clock,
-  Wifi,
-  Volume2,
-  Battery,
-  Building2,
-  Shield,
-} from 'lucide-react';
+import { Palette, Store, TrendingUp, Wallet, Mail, Music, FileText, HardDrive, Calendar, Search, Table, Share2, Briefcase, Clock, Wifi, Volume2, Battery } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import '../styles/Dock.css';
 

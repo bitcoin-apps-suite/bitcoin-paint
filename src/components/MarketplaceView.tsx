@@ -1,19 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  Search,
-  Filter,
-  TrendingUp,
-  Clock,
-  Heart,
-  ShoppingCart,
-  Eye,
-  Bitcoin,
-  Sparkles,
-  Grid,
-  List,
-} from 'lucide-react';
+import { Search, TrendingUp, Heart, ShoppingCart, Eye, Bitcoin, Sparkles, Grid, List } from 'lucide-react';
 
 interface PaintingItem {
   id: number;

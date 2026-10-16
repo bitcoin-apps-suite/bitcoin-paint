@@ -1,40 +1,13 @@
 'use client';
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { Stage, Layer, Line, Circle, Rect, Star, Arrow, Text } from 'react-konva';
+import { Stage, Layer, Line, Circle, Rect, Text } from 'react-konva';
 import tinycolor from 'tinycolor2';
 import type Konva from 'konva';
 import type { KonvaEventObject } from 'konva/lib/Node';
 import { saveAs } from 'file-saver';
 import { useWallet, inscribeFile } from '@/lib/bwallet';
-import { 
-  Brush,
-  Circle as CircleIcon,
-  Square,
-  Minus,
-  Download,
-  Upload,
-  RotateCcw,
-  Palette,
-  Eraser,
-  Type,
-  Star as StarIcon,
-  ArrowRight,
-  Undo,
-  Redo,
-  Layers,
-  Save,
-  Eye,
-  EyeOff,
-  Plus,
-  Settings,
-  Pipette
-} from 'lucide-react';
-
-interface Point {
-  x: number;
-  y: number;
-}
+import { Brush, Circle as CircleIcon, Square, Minus, Download, RotateCcw, Palette, Eraser, Type, Star as StarIcon, ArrowRight, Undo, Redo, Layers, Eye, EyeOff, Plus, Pipette } from 'lucide-react';
 
 interface DrawingElement {
   id: string;
@@ -81,7 +54,7 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
   const [isDrawing, setIsDrawing] = useState(false);
   const [history, setHistory] = useState<Layer[][]>(() => [JSON.parse(JSON.stringify(layers))]);
   const [historyStep, setHistoryStep] = useState(0);
-  const [selectedElementId, setSelectedElementId] = useState<string | null>(null);
+  const [, setSelectedElementId] = useState<string | null>(null);
   const [showLayerPanel, setShowLayerPanel] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
@@ -243,16 +216,7 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     ));
   };
 
-  const deleteLayer = (layerId: string) => {
-    if (layers.length > 1) {
-      setLayers(prev => prev.filter(layer => layer.id !== layerId));
-      if (activeLayerId === layerId) {
-        setActiveLayerId(layers[0].id);
-      }
-    }
-  };
 
-  // Canvas actions
   const clearCanvas = () => {
     setLayers(prev => prev.map(layer => ({ ...layer, elements: [] })));
     saveToHistory();
@@ -294,17 +258,55 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     }
   };
 
+  // Real vector SVG built from the same element data the Konva nodes render.
   const exportAsSVG = () => {
-    if (stageRef.current) {
-      // Konva has no native SVG export: wrap a PNG render of the stage in an SVG document.
-      const stage = stageRef.current;
-      const w = stage.width();
-      const h = stage.height();
-      const png = stage.toDataURL({ mimeType: 'image/png' });
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><image href="${png}" width="${w}" height="${h}"/></svg>`;
-      const blob = new Blob([svg], { type: 'image/svg+xml' });
-      saveAs(blob, `bitcoin-painting-${Date.now()}.svg`);
-    }
+    const esc = (v: string) =>
+      v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const paint = (v?: string) => (!v || v === 'transparent' ? 'none' : esc(v));
+    // Konva Line tension 0.5 is a cardinal spline; convert to cubic Beziers.
+    const linePath = (pts: number[], tension = 0.5) => {
+      if (pts.length < 4) return pts.length === 2 ? `M${pts[0]} ${pts[1]}l0 0` : '';
+      const n = pts.length / 2;
+      const P = (i: number) => {
+        const k = Math.max(0, Math.min(n - 1, i));
+        return [pts[2 * k], pts[2 * k + 1]];
+      };
+      let d = `M${pts[0]} ${pts[1]}`;
+      const t = tension / 3;
+      for (let i = 0; i < n - 1; i++) {
+        const [x0, y0] = P(i - 1), [x1, y1] = P(i), [x2, y2] = P(i + 1), [x3, y3] = P(i + 2);
+        const c1x = x1 + (x2 - x0) * t, c1y = y1 + (y2 - y0) * t;
+        const c2x = x2 - (x3 - x1) * t, c2y = y2 - (y3 - y1) * t;
+        d += `C${c1x.toFixed(2)} ${c1y.toFixed(2)} ${c2x.toFixed(2)} ${c2y.toFixed(2)} ${x2} ${y2}`;
+      }
+      return d;
+    };
+    const elementSvg = (el: DrawingElement): string => {
+      const stroke = `stroke="${paint(el.color)}" stroke-width="${el.strokeWidth}"`;
+      switch (el.type) {
+        case 'line':
+          return `<path d="${linePath(el.points || [])}" fill="none" ${stroke} stroke-linecap="round" stroke-linejoin="round"/>`;
+        case 'circle':
+          return `<circle cx="${el.x ?? 0}" cy="${el.y ?? 0}" r="${Math.abs(el.radius ?? 0)}" fill="${paint(el.fill)}" ${stroke}/>`;
+        case 'rect': {
+          const w = el.width ?? 0, h = el.height ?? 0;
+          const x = (el.x ?? 0) + Math.min(0, w), y = (el.y ?? 0) + Math.min(0, h);
+          return `<rect x="${x}" y="${y}" width="${Math.abs(w)}" height="${Math.abs(h)}" fill="${paint(el.fill)}" ${stroke}/>`;
+        }
+        case 'text': {
+          const fs = el.fontSize ?? 12;
+          return `<text x="${el.x ?? 0}" y="${el.y ?? 0}" font-family="Arial" font-size="${fs}" dominant-baseline="hanging" fill="${paint(el.color)}" xml:space="preserve">${esc(el.text ?? '')}</text>`;
+        }
+        default:
+          return '';
+      }
+    };
+    const body = layers
+      .filter((l) => l.visible)
+      .map((l) => `<g opacity="${l.opacity}">${l.elements.map(elementSvg).join('')}</g>`)
+      .join('');
+    const svg = `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}" height="${canvasHeight}" viewBox="0 0 ${canvasWidth} ${canvasHeight}">${body}</svg>`;
+    saveAs(new Blob([svg], { type: 'image/svg+xml' }), `bitcoin-painting-${Date.now()}.svg`);
   };
 
   // Inscribe the painting on-chain as a 1Sat ordinal from the user's own wallet.
