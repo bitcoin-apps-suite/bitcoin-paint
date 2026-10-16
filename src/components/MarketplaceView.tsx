@@ -33,81 +33,8 @@ export default function MarketplaceView() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('trending');
 
-  // Mock data for paintings
-  const paintings: PaintingItem[] = [
-    {
-      id: 1,
-      title: 'Neon Dreams',
-      painter: 'CryptoPainter',
-      price: 0.05,
-      likes: 234,
-      views: 1205,
-      imageUrl: '/art1.jpg',
-      category: 'digital',
-      isNew: true,
-      isTrending: true,
-    },
-    {
-      id: 2,
-      title: 'Bitcoin Genesis',
-      painter: 'SatoshiVision',
-      price: 0.12,
-      likes: 456,
-      views: 2340,
-      imageUrl: '/art2.jpg',
-      category: 'crypto',
-      isNew: false,
-      isTrending: true,
-    },
-    {
-      id: 3,
-      title: 'Abstract Reality',
-      painter: 'PixelMaster',
-      price: 0.08,
-      likes: 189,
-      views: 890,
-      imageUrl: '/art3.jpg',
-      category: 'abstract',
-      isNew: true,
-      isTrending: false,
-    },
-    {
-      id: 4,
-      title: 'Future Landscapes',
-      painter: 'DigitalDreamer',
-      price: 0.15,
-      likes: 567,
-      views: 3456,
-      imageUrl: '/art4.jpg',
-      category: 'landscape',
-      isNew: false,
-      isTrending: true,
-    },
-    {
-      id: 5,
-      title: 'Cyber Punk City',
-      painter: 'NeoPainter',
-      price: 0.09,
-      likes: 345,
-      views: 1678,
-      imageUrl: '/art5.jpg',
-      category: 'digital',
-      isNew: true,
-      isTrending: false,
-    },
-    {
-      id: 6,
-      title: 'Golden Ratio',
-      painter: 'MathPainter',
-      price: 0.20,
-      likes: 789,
-      views: 4567,
-      imageUrl: '/art6.jpg',
-      category: 'generative',
-      isNew: false,
-      isTrending: true,
-    },
-  ];
+  // Listings will come from artists listing on-chain; none yet.
+  const paintings: PaintingItem[] = [];
 
   const categories = [
     { id: 'all', label: 'All Paintings', icon: Grid },
@@ -258,6 +185,7 @@ export default function MarketplaceView() {
                 gap: '24px',
               }}
             >
+              {filteredPaintings.length === 0 && <p style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '48px 0', color: 'rgba(255,255,255,0.6)' }}>No paintings are listed for sale yet.</p>}
               {filteredPaintings.map((painting) => (
                 <div
                   key={painting.id}

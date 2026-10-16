@@ -103,6 +103,8 @@ export default function StudioInterface() {
         {/* Right Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
+            disabled
+            title="AI Enhance is not live yet"
             style={{
               padding: '8px 16px',
               background: 'linear-gradient(135deg, #DC2626, #B91C1C)',
@@ -114,6 +116,7 @@ export default function StudioInterface() {
               alignItems: 'center',
               gap: '6px',
               fontWeight: 500,
+              opacity: 0.5,
             }}
           >
             <Sparkles size={16} />
@@ -131,6 +134,8 @@ export default function StudioInterface() {
               alignItems: 'center',
               gap: '6px',
             }}
+            onClick={() => window.dispatchEvent(new Event('bpaint:save-onchain'))}
+            title="Save on-chain from your wallet"
           >
             <Save size={16} />
             Save
@@ -147,6 +152,7 @@ export default function StudioInterface() {
               alignItems: 'center',
               gap: '6px',
             }}
+            onClick={() => window.dispatchEvent(new Event('bpaint:export'))}
           >
             <Download size={16} />
             Export

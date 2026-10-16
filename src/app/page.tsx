@@ -13,7 +13,7 @@ import GalleryView from '@/components/GalleryView';
 import PaintExchangeView from '@/components/PaintExchangeView';
 import AppHeader from '@/components/AppHeader';
 import PaintHeader from '@/components/PaintHeader';
-import AuthModal from '@/components/AuthModal';
+import { useWallet } from '@/lib/bwallet';
 
 type ViewMode = 'studio' | 'marketplace' | 'gallery' | 'exchange';
 
@@ -21,7 +21,7 @@ export default function HomePage() {
   const [currentView, setCurrentView] = useState<ViewMode>('studio');
   const [sidebarWidth, setSidebarWidth] = useState(280);
   const [isResizing, setIsResizing] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false);
+  const { connect } = useWallet();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const resizeRef = useRef<HTMLDivElement>(null);
 
@@ -132,7 +132,7 @@ export default function HomePage() {
           <PaintSidebar
             currentView={currentView}
             onViewChange={setCurrentView}
-            onAuthRequired={() => setShowAuthModal(true)}
+            onAuthRequired={() => { void connect(); }}
           />
 
           {/* Resize Handle */}
@@ -360,7 +360,6 @@ export default function HomePage() {
       )}
 
       {/* Auth Modal */}
-      {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
 
       {/* Floating Dock at the bottom */}
       <Dock />

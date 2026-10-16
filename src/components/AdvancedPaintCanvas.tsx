@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Stage, Layer, Line, Circle, Rect, Star, Arrow, Text } from 'react-konva';
 import tinycolor from 'tinycolor2';
 import { saveAs } from 'file-saver';
+import { useWallet, inscribeFile } from '@/lib/bwallet';
 import { 
   Brush,
   Circle as CircleIcon,
@@ -298,10 +299,40 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     }
   };
 
-  const saveToSatoshis = () => {
-    // Placeholder for Bitcoin integration
-    alert('💰 Painting saved to Bitcoin blockchain! (Feature coming soon)');
-  };
+  // Inscribe the painting on-chain as a 1Sat ordinal from the user's own wallet.
+  // The wallet shows the fee and asks for approval; nothing is held by this site.
+  const { user, connect } = useWallet();
+  const [chainStatus, setChainStatus] = useState<{ ok: boolean; text: string; txid?: string } | null>(null);
+  const [savingOnChain, setSavingOnChain] = useState(false);
+  const saveToSatoshis = useCallback(async () => {
+    if (!stageRef.current || savingOnChain) return;
+    setChainStatus(null);
+    if (!user && !(await connect())) return;
+    setSavingOnChain(true);
+    try {
+      const uri = stageRef.current.toDataURL({ mimeType: 'image/png', pixelRatio: 1 });
+      const blob = await (await fetch(uri)).blob();
+      const file = new File([blob], `bitcoin-painting-${Date.now()}.png`, { type: 'image/png' });
+      const txid = await inscribeFile(file, 'Save painting on-chain');
+      setChainStatus({ ok: true, text: 'Saved on-chain.', txid });
+    } catch (e) {
+      setChainStatus({ ok: false, text: e instanceof Error ? e.message : 'The wallet did not complete the save.' });
+    } finally {
+      setSavingOnChain(false);
+    }
+  }, [user, connect, savingOnChain]);
+
+  // The studio toolbar's Save / Export buttons drive this canvas.
+  useEffect(() => {
+    const onSave = () => void saveToSatoshis();
+    const onExport = () => downloadCanvas('png');
+    window.addEventListener('bpaint:save-onchain', onSave);
+    window.addEventListener('bpaint:export', onExport);
+    return () => {
+      window.removeEventListener('bpaint:save-onchain', onSave);
+      window.removeEventListener('bpaint:export', onExport);
+    };
+  });
 
   // Initialize history
   useEffect(() => {
@@ -467,8 +498,18 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
             onClick={saveToSatoshis}
             className="px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
           >
-            💰 Save with Satoshis
+            {savingOnChain ? 'Waiting for wallet…' : user ? 'Save on-chain' : 'Sign in to save on-chain'}
           </button>
+          {chainStatus && (
+            <span className={`text-sm ${chainStatus.ok ? 'text-green-400' : 'text-red-400'}`}>
+              {chainStatus.text}{' '}
+              {chainStatus.txid && (
+                <a className="underline" href={`https://whatsonchain.com/tx/${chainStatus.txid}`} target="_blank" rel="noopener noreferrer">
+                  View
+                </a>
+              )}
+            </span>
+          )}
         </div>
       </div>
 
