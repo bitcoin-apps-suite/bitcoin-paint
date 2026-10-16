@@ -24,7 +24,7 @@ const MarketingPage: React.FC = () => {
           </h1>
           
           <p className="hero-subtitle">
-            The world's first blockchain-powered digital art platform with native Bitcoin payments, 
+            The world&apos;s first blockchain-powered digital art platform with native Bitcoin payments, 
             NFT minting, and decentralized art marketplace.
           </p>
           

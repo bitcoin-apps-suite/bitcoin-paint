@@ -51,7 +51,7 @@ export default function PaintSidebar({ currentView, onViewChange, onAuthRequired
     const savedProjects = localStorage.getItem('paintProjects');
     if (savedProjects) {
       const size = new Blob([savedProjects]).size;
-      setStorageUsed(size);
+      Promise.resolve().then(() => setStorageUsed(size));
     }
   }, []);
 

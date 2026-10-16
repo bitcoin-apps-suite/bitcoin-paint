@@ -196,7 +196,7 @@ const FallbackCanvas: React.FC<FallbackCanvasProps> = ({
   };
 
   // Generate circle points
-  const generateCircle = (start: Point, end: Point): Point[] => {
+  function generateCircle(start: Point, end: Point): Point[] {
     const centerX = start.x;
     const centerY = start.y;
     const radius = Math.sqrt(Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2));
@@ -216,7 +216,7 @@ const FallbackCanvas: React.FC<FallbackCanvasProps> = ({
   };
 
   // Generate rectangle points
-  const generateRectangle = (start: Point, end: Point): Point[] => {
+  function generateRectangle(start: Point, end: Point): Point[] {
     return [
       { x: start.x, y: start.y },
       { x: end.x, y: start.y },

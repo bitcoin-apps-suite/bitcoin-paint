@@ -2,6 +2,8 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Stage, Layer, Line, Circle, Rect } from 'react-konva';
+import type Konva from 'konva';
+import type { KonvaEventObject } from 'konva/lib/Node';
 import { 
   Brush,
   Circle as CircleIcon,
@@ -40,7 +42,7 @@ const PaintCanvas: React.FC<PaintCanvasProps> = ({
   const [color, setColor] = useState('#8b5cf6');
   const [strokeWidth, setStrokeWidth] = useState(5);
   const [isDrawing, setIsDrawing] = useState(false);
-  const stageRef = useRef<any>(null);
+  const stageRef = useRef<Konva.Stage>(null);
 
   const colors = [
     '#8b5cf6', // Purple
@@ -65,9 +67,10 @@ const PaintCanvas: React.FC<PaintCanvasProps> = ({
     { name: 'line', icon: Minus, label: 'Line' },
   ];
 
-  const handleMouseDown = (e: any) => {
+  const handleMouseDown = (e: KonvaEventObject<MouseEvent>) => {
+    const pos = e.target.getStage()?.getPointerPosition();
+    if (!pos) return;
     setIsDrawing(true);
-    const pos = e.target.getStage().getPointerPosition();
     
     if (tool === 'pen' || tool === 'eraser') {
       setLines([...lines, { 
@@ -79,18 +82,16 @@ const PaintCanvas: React.FC<PaintCanvasProps> = ({
     }
   };
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: KonvaEventObject<MouseEvent>) => {
     if (!isDrawing) return;
 
-    const stage = e.target.getStage();
-    const point = stage.getPointerPosition();
-    
-    if (tool === 'pen' || tool === 'eraser') {
-      let lastLine = lines[lines.length - 1];
-      lastLine.points = lastLine.points.concat([point.x, point.y]);
-      
-      lines.splice(lines.length - 1, 1, lastLine);
-      setLines(lines.concat());
+    const point = e.target.getStage()?.getPointerPosition();
+    if (!point) return;
+
+    if ((tool === 'pen' || tool === 'eraser') && lines.length > 0) {
+      const lastLine = lines[lines.length - 1];
+      const updated = { ...lastLine, points: lastLine.points.concat([point.x, point.y]) };
+      setLines([...lines.slice(0, -1), updated]);
     }
   };
 
