@@ -192,57 +192,6 @@ const MarketingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="testimonials-section">
-        <div className="section-container">
-          <h2 className="section-title">TRUSTED BY DIGITAL ARTISTS</h2>
-          
-          <div className="testimonials-grid">
-            <div className="testimonial">
-              <div className="testimonial-content">
-                "Bitcoin Paint has revolutionized how I create and sell digital art. 
-                The NFT integration is seamless, and I finally own my work completely."
-              </div>
-              <div className="testimonial-author">
-                <div className="author-avatar"></div>
-                <div className="author-info">
-                  <div className="author-name">Maya Patel</div>
-                  <div className="author-title">Digital Artist & NFT Creator</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="testimonial">
-              <div className="testimonial-content">
-                "The professional tools rival desktop applications, but with the added 
-                benefit of blockchain ownership. It's the future of digital art."
-              </div>
-              <div className="testimonial-author">
-                <div className="author-avatar"></div>
-                <div className="author-info">
-                  <div className="author-name">Alex Chen</div>
-                  <div className="author-title">Concept Artist, GameStudio</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="testimonial">
-              <div className="testimonial-content">
-                "The built-in marketplace makes it incredibly easy to monetize my art. 
-                No middlemen, just direct sales to collectors worldwide."
-              </div>
-              <div className="testimonial-author">
-                <div className="author-avatar"></div>
-                <div className="author-info">
-                  <div className="author-name">Jordan Williams</div>
-                  <div className="author-title">Independent Artist</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-content">

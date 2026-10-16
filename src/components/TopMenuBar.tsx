@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import WalletButton from './WalletButton';
 import { Github, BookOpen, FileText, ExternalLink } from 'lucide-react'
 import '../styles/TopMenuBar.css'
 
@@ -263,13 +264,13 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
         },
         { 
           label: 'GitHub Repository', 
-          href: 'https://github.com/bitcoin-apps-suite/bitcoin-art',
+          href: 'https://github.com/bitcoin-apps-suite/bitcoin-paint',
           external: true
         },
         { divider: true },
         { 
           label: 'Report an Issue', 
-          href: 'https://github.com/bitcoin-apps-suite/bitcoin-art/issues',
+          href: 'https://github.com/bitcoin-apps-suite/bitcoin-paint/issues',
           external: true
         }
       ]
@@ -460,8 +461,9 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
 
       {/* Right side - Status */}
       <div className="taskbar-status">
+        <WalletButton className="!py-0.5 !text-xs" />
         <a 
-          href="https://github.com/bitcoin-apps-suite/bitcoin-art" 
+          href="https://github.com/bitcoin-apps-suite/bitcoin-paint" 
           target="_blank" 
           rel="noopener noreferrer"
           className="taskbar-link"

@@ -174,8 +174,7 @@ export default function FeaturesPage() {
             maxWidth: '500px',
             margin: '0 auto 30px auto'
           }}>
-            Join thousands of artists already using Bitcoin Paint to create, 
-            protect, and profit from their digital artwork.
+            Paint in the browser and save your work on-chain from your own wallet.
           </p>
           <button
             style={{
