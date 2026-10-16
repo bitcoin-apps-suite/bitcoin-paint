@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { 
   ChevronLeft,
@@ -28,6 +28,7 @@ import {
   Clock,
   Palette
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import '../styles/DevSidebar.css';
 
 export default function DevSidebar() {
@@ -65,7 +66,7 @@ export default function DevSidebar() {
 
   const menuItems: Array<{
     path?: string;
-    icon?: any;
+    icon?: LucideIcon;
     label?: string;
     badge?: string;
     divider?: boolean;
@@ -146,6 +147,7 @@ export default function DevSidebar() {
           }
 
           const Icon = item.icon;
+          if (!Icon) return null;
           const isActive = pathname === item.path;
 
           if (item.external) {

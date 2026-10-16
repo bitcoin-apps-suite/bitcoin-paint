@@ -184,17 +184,17 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
         { 
           label: 'Actual Size', 
           shortcut: '⌘0',
-          action: () => (document.body.style as any).zoom = '100%'
+          action: () => document.body.style.zoom = '100%'
         },
         { 
           label: 'Zoom In', 
           shortcut: '⌘+',
-          action: () => (document.body.style as any).zoom = '110%'
+          action: () => document.body.style.zoom = '110%'
         },
         { 
           label: 'Zoom Out', 
           shortcut: '⌘-',
-          action: () => (document.body.style as any).zoom = '90%'
+          action: () => document.body.style.zoom = '90%'
         }
       ]
     },

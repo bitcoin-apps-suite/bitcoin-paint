@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import './TokenPage.css';
 import Footer from '@/components/Footer';
 import PaintHeader from '@/components/PaintHeader';
@@ -10,11 +10,7 @@ import TopMenuBar from '@/components/TopMenuBar';
 import ProofOfConceptBar from '@/components/ProofOfConceptBar';
 
 const TokenPage: React.FC = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
@@ -201,7 +197,7 @@ const TokenPage: React.FC = () => {
               </div>
               <p style={{textAlign: 'center', marginTop: '20px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)'}}>
                 The Bitcoin Paint Exchange enables artists to mint NFTs, sell artwork, and trade digital assets,
-                generating platform fees that contribute to the ecosystem's sustainability.
+                generating platform fees that contribute to the ecosystem&apos;s sustainability.
               </p>
             </div>
           </div>
@@ -285,11 +281,11 @@ const TokenPage: React.FC = () => {
             <p>
               <strong>Trading & Liquidity:</strong> The $BPAINT token is intended to be freely tradable 
               on the Bitcoin Paint Exchange and associated platforms. We encourage an active secondary 
-              market to provide liquidity and price discovery for creators' work.
+              market to provide liquidity and price discovery for creators&apos; work.
             </p>
             <p>
               <strong>$BSHARE Fundraising:</strong> The Bitcoin Corporation LTD intends to issue $BSHARE 
-              tokens as a fundraising mechanism. These tokens will represent participation in the platform's 
+              tokens as a fundraising mechanism. These tokens will represent participation in the platform&apos;s 
               success and may be offered through appropriate channels.
             </p>
             <p>

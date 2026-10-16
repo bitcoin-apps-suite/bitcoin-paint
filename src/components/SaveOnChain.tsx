@@ -26,9 +26,16 @@ export default function SaveOnChain({ accept, noun, title, file: given, onSaved 
   }, []);
 
   useEffect(() => {
-    if (user) refresh();
-    else setItems(null);
-  }, [user, refresh]);
+    if (!user) return;
+    let alive = true;
+    listSaved().then(
+      (r) => alive && setItems(r),
+      () => alive && setItems([]),
+    );
+    return () => {
+      alive = false;
+    };
+  }, [user]);
 
   const save = async () => {
     if (!chosen) return;

@@ -3,6 +3,8 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Stage, Layer, Line, Circle, Rect, Star, Arrow, Text } from 'react-konva';
 import tinycolor from 'tinycolor2';
+import type Konva from 'konva';
+import type { KonvaEventObject } from 'konva/lib/Node';
 import { saveAs } from 'file-saver';
 import { useWallet, inscribeFile } from '@/lib/bwallet';
 import { 
@@ -77,7 +79,7 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
   const [fillColor, setFillColor] = useState('transparent');
   const [strokeWidth, setStrokeWidth] = useState(5);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [history, setHistory] = useState<Layer[][]>([]);
+  const [history, setHistory] = useState<Layer[][]>(() => [JSON.parse(JSON.stringify(layers))]);
   const [historyStep, setHistoryStep] = useState(0);
   const [selectedElementId, setSelectedElementId] = useState<string | null>(null);
   const [showLayerPanel, setShowLayerPanel] = useState(false);
@@ -87,7 +89,7 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
   const [brushOpacity, setBrushOpacity] = useState(1);
   const [brushMode, setBrushMode] = useState<'normal' | 'multiply' | 'screen' | 'overlay'>('normal');
   
-  const stageRef = useRef<any>(null);
+  const stageRef = useRef<Konva.Stage>(null);
   const currentPath = useRef<string>('');
   const elementCounter = useRef(0);
 
@@ -155,14 +157,15 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
   };
 
   // Mouse handlers
-  const handleMouseDown = (e: any) => {
+  const handleMouseDown = (e: KonvaEventObject<MouseEvent>) => {
     if (tool === 'eyedropper') {
       // Color picker functionality would go here
       return;
     }
 
+    const pos = e.target.getStage()?.getPointerPosition();
+    if (!pos) return;
     setIsDrawing(true);
-    const pos = e.target.getStage().getPointerPosition();
     
     if (tool === 'brush' || tool === 'eraser') {
       currentPath.current = '';
@@ -190,12 +193,12 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
     }
   };
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: KonvaEventObject<MouseEvent>) => {
     if (!isDrawing) return;
 
-    const stage = e.target.getStage();
-    const point = stage.getPointerPosition();
-    
+    const point = e.target.getStage()?.getPointerPosition();
+    if (!point) return;
+
     if (tool === 'brush' || tool === 'eraser') {
       setLayers(prev => prev.map(layer => {
         if (layer.id !== activeLayerId) return layer;
@@ -293,7 +296,12 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
 
   const exportAsSVG = () => {
     if (stageRef.current) {
-      const svg = stageRef.current.toSVG();
+      // Konva has no native SVG export: wrap a PNG render of the stage in an SVG document.
+      const stage = stageRef.current;
+      const w = stage.width();
+      const h = stage.height();
+      const png = stage.toDataURL({ mimeType: 'image/png' });
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><image href="${png}" width="${w}" height="${h}"/></svg>`;
       const blob = new Blob([svg], { type: 'image/svg+xml' });
       saveAs(blob, `bitcoin-painting-${Date.now()}.svg`);
     }
@@ -333,13 +341,6 @@ const AdvancedPaintCanvas: React.FC<AdvancedPaintCanvasProps> = ({
       window.removeEventListener('bpaint:export', onExport);
     };
   });
-
-  // Initialize history
-  useEffect(() => {
-    if (history.length === 0) {
-      setHistory([JSON.parse(JSON.stringify(layers))]);
-    }
-  }, []);
 
   // Listen for new painting events
   useEffect(() => {
