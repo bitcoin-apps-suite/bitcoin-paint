@@ -2,19 +2,6 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import tinycolor from 'tinycolor2';
-import { saveAs } from 'file-saver';
-import { 
-  Brush,
-  Circle as CircleIcon,
-  Square,
-  Minus,
-  Download,
-  RotateCcw,
-  Eraser,
-  Type,
-  Undo,
-  Redo
-} from 'lucide-react';
 
 interface Point {
   x: number;
@@ -41,22 +28,14 @@ const FallbackCanvas: React.FC<FallbackCanvasProps> = ({
   const [isDrawing, setIsDrawing] = useState(false);
   const [tool, setTool] = useState('brush');
   const [color, setColor] = useState('#DC2626');
-  const [brushSize, setBrushSize] = useState(5);
+  const [brushSize] = useState(5);
   const [paths, setPaths] = useState<DrawingPath[]>([]);
   const [currentPath, setCurrentPath] = useState<Point[]>([]);
   const [history, setHistory] = useState<DrawingPath[][]>([]);
   const [historyStep, setHistoryStep] = useState(0);
-  const [brushOpacity, setBrushOpacity] = useState(1);
+  const [brushOpacity] = useState(1);
   const [isDragOver, setIsDragOver] = useState(false);
 
-  const tools = [
-    { name: 'brush', icon: Brush, label: 'Brush' },
-    { name: 'eraser', icon: Eraser, label: 'Eraser' },
-    { name: 'line', icon: Minus, label: 'Line' },
-    { name: 'circle', icon: CircleIcon, label: 'Circle' },
-    { name: 'rect', icon: Square, label: 'Rectangle' },
-    { name: 'text', icon: Type, label: 'Text' },
-  ];
 
 
   // Clear canvas and redraw
@@ -148,39 +127,11 @@ const FallbackCanvas: React.FC<FallbackCanvasProps> = ({
     setHistoryStep(newHistory.length - 1);
   }, [paths, history, historyStep]);
 
-  // Undo
-  const undo = () => {
-    if (historyStep > 0) {
-      setHistoryStep(historyStep - 1);
-      setPaths([...history[historyStep - 1]]);
-    }
-  };
-
-  // Redo
-  const redo = () => {
-    if (historyStep < history.length - 1) {
-      setHistoryStep(historyStep + 1);
-      setPaths([...history[historyStep + 1]]);
-    }
-  };
-
   // Clear canvas
   const clearCanvas = () => {
     setPaths([]);
     setCurrentPath([]);
     saveToHistory();
-  };
-
-  // Download canvas
-  const downloadCanvas = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    canvas.toBlob((blob) => {
-      if (blob) {
-        saveAs(blob, `bitcoin-painting-${Date.now()}.png`);
-      }
-    });
   };
 
   // Get mouse position
@@ -297,9 +248,13 @@ const FallbackCanvas: React.FC<FallbackCanvasProps> = ({
   };
 
   // Listen for new painting events
+  const clearCanvasRef = useRef(clearCanvas);
+  useEffect(() => {
+    clearCanvasRef.current = clearCanvas;
+  });
   useEffect(() => {
     const handleNewPainting = () => {
-      clearCanvas();
+      clearCanvasRef.current();
     };
 
     window.addEventListener('newPainting', handleNewPainting);

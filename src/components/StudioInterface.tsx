@@ -1,32 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  Brush,
-  Palette,
-  PenTool,
-  Square,
-  Circle,
-  Type,
-  Eraser,
-  Download,
-  Upload,
-  Save,
-  Undo,
-  Redo,
-  Layers,
-  Image,
-  Sparkles,
-  Zap,
-  Grid,
-} from 'lucide-react';
+import { Brush, Palette, PenTool, Square, Type, Eraser, Download, Save, Undo, Redo, Sparkles, Grid } from 'lucide-react';
 import PaintCanvas from './PaintCanvasDynamic';
 
 export default function StudioInterface() {
   const [selectedTool, setSelectedTool] = useState('brush');
   const [brushSize, setBrushSize] = useState(5);
   const [selectedColor, setSelectedColor] = useState('#DC2626');
-  const [layers, setLayers] = useState([{ id: 1, name: 'Layer 1', visible: true, opacity: 100 }]);
 
   const tools = [
     { id: 'brush', icon: Brush, label: 'Brush' },

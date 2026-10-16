@@ -11,7 +11,6 @@ import StudioInterface from '@/components/StudioInterface';
 import MarketplaceView from '@/components/MarketplaceView';
 import GalleryView from '@/components/GalleryView';
 import PaintExchangeView from '@/components/PaintExchangeView';
-import AppHeader from '@/components/AppHeader';
 import PaintHeader from '@/components/PaintHeader';
 import { useWallet } from '@/lib/bwallet';
 

@@ -2,37 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import WalletButton from './WalletButton';
-import {
-  Palette,
-  Store,
-  Image,
-  TrendingUp,
-  Plus,
-  Upload,
-  FolderOpen,
-  Clock,
-  Star,
-  Brush,
-  Users,
-  Settings,
-  HardDrive,
-  User,
-  LogOut,
-  ChevronRight,
-  ChevronDown,
-  Search,
-  Grid,
-  Frame,
-  Sparkles,
-  Circle,
-  Square,
-  Minus,
-  ArrowRight,
-  Type,
-  Eraser,
-  Pipette,
-  Star as StarIcon,
-} from 'lucide-react';
+import { Palette, Store, Image, TrendingUp, Plus, Upload, Clock, Star, Brush, Users, Settings, HardDrive, ChevronRight, ChevronDown, Search, Grid, Frame, Sparkles } from 'lucide-react';
 
 interface PaintSidebarProps {
   currentView: string;
@@ -40,7 +10,7 @@ interface PaintSidebarProps {
   onAuthRequired: () => void;
 }
 
-export default function PaintSidebar({ currentView, onViewChange, onAuthRequired }: PaintSidebarProps) {
+export default function PaintSidebar({ currentView, onViewChange }: PaintSidebarProps) {
   const [expandedSections, setExpandedSections] = useState<string[]>(['studio', 'gallery']);
   const [searchQuery, setSearchQuery] = useState('');
   const [storageUsed, setStorageUsed] = useState(0);
